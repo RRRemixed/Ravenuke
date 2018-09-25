@@ -1,0 +1,14 @@
+Here you will find different layouts to the video stream module. Not all
+people like the default layout and some people have modified it to their
+liking. You are free to use the custom layouts that you find here. Simply
+replace the files provided.
+
+Warning: Not all layouts here will work with the latest version, please
+do not try contacting us if they dont work. If you know how to fix them
+then by all means do so.
+
+Any layouts that are added may have copyrights in them, you are not
+allowed to remove them!
+
+If you have any custom layout(s) you want to share with us then please
+let us know on our forums at www.steezmatic-designs.com Thank You.

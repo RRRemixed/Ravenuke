@@ -1,0 +1,37 @@
+/////////////////////////////////////////////////////////////////////////////////////////
+// NM UserInfo AR SoC (Auto Refresh Side or Center)
+// http://www.nukemodified.com
+// This block auto refresh's the user info it can be set as a side or center block (SoC).
+/////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+This block auto refresh's the user info it can be set as a side or center block (SoC).
+please upload the following
+blocks/block-User_Info_AR_SoC.php >> root/blocks/block-User_Info_AR_SoC.php
+
+userinfo.php >> root/userinfo.php
+
+if you want to config the td style or how many new users to show open userinfo.php
+
+find:
+
+// Some Definitions
+#====last users to display =====
+$nunum = 5;
+#==== <td> style =====
+$tdstyle = 'class="row1"';
+
+and edit to your needs
+
+now if you want to adjust the refresh rate open blocks/block-User_Info_AR_SoC.php
+below:
+
+if ( !defined('BLOCK_FILE') ) {
+    Header("Location: ../index.php");
+    die();
+}
+
+edit:
+$refreshrate = '60000'; // 60000 = 60 secs

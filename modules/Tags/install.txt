@@ -1,0 +1,62 @@
+******Disclaimer************************
+While every attempt has been made to ensure that this software works and is safe for your use, I cannot and will not be held liable for any issues arising from its use and/or misuse.
+****************************************
+
+*******License************************
+This program is free software. You can redistribute it and/or modify 
+it under the terms of the GNU General Public License as published by 
+the Free Software Foundation; either version 2 of the License.      
+*****************************************
+
+This module is based on LGNuke tag cloud. The tag cloud is preinstalled in LGNuke 1.4.1 from http://www.lgnuke.org 
+
+***************Prerequisite*************
+RavenNuke 2.30.02
+Trickedoutnews 2.0 mod 
+
+***************Installation*************
+*****Backup site before install*******
+
+1) Upload the included Modules and Block to your RavenNuke site.
+
+2) Upload the install-tagcloud.php file to your root directory.
+
+3) Open themes/ravennuke.css and add the following:
+
+****************Add Css******************************
+
+.class1 A:link {font-size:9px;}
+.class1 A:visited {font-size:9px;}
+.class1 A:active {font-size:9px;}
+.class1 A:hover {font-size:9px;}
+
+.class2 A:link {font-size:12px;}
+.class2 A:visited {font-size:12px;}
+.class2 A:active {font-size:12px;}
+.class2 A:hover {font-size:12px;}
+
+.class3 A:link {font-size:15px;}
+.class3 A:visited {font-size:15px;}
+.class3 A:active {font-size:15px;}
+.class3 A:hover {font-size:15px;}
+
+.class4 A:link {font-size:18px;}
+.class4 A:visited {font-size:18px;}
+.class4 A:active {font-size:18px;}
+.class4 A:hover {font-size:18px;}
+
+.class5 A:link {font-size:20px;}
+.class5 A:visited {font-size:20px;}
+.class5 A:active {font-size:20px;}
+.class5 A:hover {font-size:20px;}
+
+**************End Add Css****************************
+
+4) Make sure you are logged in as administrator and run the install script.
+ 
+5) Point your browser to http://yoursite.com/install-tagcloud.php and follow the instructions.
+
+6) Activate the Tag module and the Tag Cloud block from your ACP.
+
+Enjoy
+

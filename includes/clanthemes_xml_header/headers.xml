@@ -1,0 +1,42 @@
+<!-- 
+
+XML Configuration Settings (Make a backup BEFORE editing below!!)
+
+rotator isRandom if you want your images to display randonmly set to true 
+bannerTime is the ammount of seconds the banner will show for 
+numberOfBanners is the ammount you want to show in total 
+banners showHeader is to show the text overlay on-top off the image
+
+-->
+
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rotator isRandom="false">
+  <bannerTime>5</bannerTime>
+  <numberOfBanners>4</numberOfBanners>
+  <banners showHeader="true">
+    <banner>
+      <name>Making Clans Look Good</name>
+      <body></body>
+      <imagePath>banner1.jpg</imagePath>
+      <link></link>
+    </banner>
+    <banner>
+      <name>2</name>
+      <body></body>
+      <imagePath>banner2.jpg</imagePath>
+      <link></link>
+    </banner>
+    <banner>
+      <name>3</name>
+      <body></body>
+      <imagePath>banner3.jpg</imagePath>
+      <link></link>
+    </banner>
+    <banner>
+      <name>4</name>
+      <body></body>
+      <imagePath>banner4.jpg</imagePath>
+      <link></link>
+    </banner>
+  </banners>
+</rotator>

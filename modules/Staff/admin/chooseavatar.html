@@ -1,0 +1,64 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<meta name="generator" content="Adobe GoLive" />
+		<title>Untitled Page</title><script language="javascript">
+<!--
+
+/*Combo Box Image Selector:
+By JavaScript Kit (www.javascriptkit.com)
+Over 200+ free JavaScript here!
+*/
+
+function showimage()
+{
+if (!document.images)
+return
+document.images.pictures.src=
+document.mygallery.picture.options[document.mygallery.picture.selectedIndex].value
+}
+//-->
+</script>
+	</head>
+
+	<body>
+		<p><select  name="user_avatar" class="form_select" id="user_avatar" onChange="generateimage(this.options[this.selectedIndex].value)" style="width: 50%;">
+								<?php if ($open_dir = opendir('images/staff')) { while (false !== ($open_avatar = readdir($open_dir))) { 
+		if ($open_avatar != "." && $open_avatar != "..") {
+		?>
+								<option value="<?php echo $open_avatar;?>" <?php if ($defaultuavatar == $open_avatar) { echo 'selected="selected"'; } ?>><?php echo $open_avatar;?></option><?php } } closedir($open_dir); } ?>
+							</select></p>
+						<ilayer id="dynamic1" width=100% height=178><layer id="dynamic2" width=100% height=178><div id="dynamic3"></div></layer></ilayer>
+						<p>
+						<script>
+
+var tempobj=document.dynamicselector.dynamicselector2
+
+function generateimage(which){
+if (document.all){
+dynamic3.innerHTML='<center>Loading image...</center>'
+dynamic3.innerHTML='<img src="images/staff/'+which+'">'
+}
+else if (document.layers){
+document.dynamic1.document.dynamic2.document.write('<img src="images/staff/'+which+'">')
+document.dynamic1.document.dynamic2.document.close()
+}
+else
+alert('You need NS 4 or IE 4 to view the images!')
+}
+
+function generatedefault(){
+generateimage(tempobj.options[tempobj.options.selectedIndex].value)
+}
+
+if (document.all||document.layers){
+if (tempobj.options.selectedIndex!=-1)
+window.onload=generatedefault
+}
+
+</script> </p>
+	</body>
+
+</html>

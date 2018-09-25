@@ -1,0 +1,5 @@
+SetEnvIfNoCase Referer "modules\.php\?name=Club" locally_linked=1
+<FilesMatch "\.*$">
+  Order Allow,Deny
+  Allow from env=locally_linked
+</FilesMatch>

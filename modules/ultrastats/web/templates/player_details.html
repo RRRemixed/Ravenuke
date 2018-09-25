@@ -1,0 +1,248 @@
+<!-- INCLUDE site_header.html --> 
+<!-- INCLUDE menu.html -->
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td width="2%">&nbsp;</td>
+    <td width="96%"><BR>&nbsp;<BR></td>
+    <td width="2%">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td colspan="3">
+		<table width="75%" border="0" align="center" cellpadding="0" cellspacing="0" class="table_with_border">
+		<tr>
+			<td class="cellmenu1" align="center" height="20"><a href="#generalstats" class="mylink2"><B>General Stats</B></a></td>
+			<td class="cellmenu1" align="center"><a href="#favweapons" class="mylink2"><B>Favorite Weapons</B></a></td>
+			<td class="cellmenu1" align="center"><a href="#favtargets" class="mylink2"><B>Favorite Targets</B></a></td>
+			<td class="cellmenu1" align="center"><a href=hitlocations.php?ID={MY_ID} target="_blank"><B>Hit Locations (POPUP)</B></a></td>
+		</tr>
+		</table>
+	</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td>
+		<BR>
+		<a name="generalstats"></a>
+	
+		<table width="90%" border="0" align="center" cellpadding="0" cellspacing="0" class="table_with_border">
+		<tr><td colspan="2" class="topmenu" align="center" height="20"><B>{NAME_HTML} 's General Stats</B></td></tr>
+        <tr><td colspan="2" class="topmenu_sub"><img src="{BASEWEB}images/misc/transparent.gif" height="1" width="1"></td></tr>
+        <tr>
+			<td colspan="2" align="center" class="cellmenu1" nowrap>
+			(Skill: {MY_SKILL} | Efficience: <img src="{BASEWEB}images/misc/{STYLESHEET}/main.gif" width="{MY_IMG_WIDTH}" height="6">&nbsp;{MY_RATIO}&nbsp;%)
+			</td>
+        </tr>
+        <tr >
+          <td colspan="2" align="center" class="topmenu_sub"><img src="{BASEWEB}images/misc/transparent.gif" height="1" width="1"></td>
+        </tr>
+        <tr> 
+          <td width="50%" nowrap> <BR> 
+            <table width="200" border="0" cellspacing="0" cellpadding="0" class="table_with_border" align="center">
+              <tr class="cellmenu1"> 
+                <td colspan="2" align="center" class="cellmenu1">Player Stats</td>
+              </tr>
+              <tr class="cellmenu1">
+                <td colspan="2" align="center" class="topmenu_sub"><img src="{BASEWEB}images/misc/transparent.gif" height="1" width="1"></td>
+              </tr>
+              <tr> 
+                <td width="150" class="cellsubmenu" nowrap>&nbsp;Aliases count:</td>
+                <td width="100%" class="value">{ALIAS_COUNT}</td>
+              </tr>
+              <tr> 
+                <td nowrap class="cellsubmenu" nowrap>&nbsp;Kills:</td>
+                <td class="value">{MY_KILLS}</td>
+              </tr>
+              <tr> 
+                <td nowrap class="cellsubmenu" nowrap>&nbsp;Deaths:</td>
+                <td class="value">{MY_DEATHS}</td>
+              </tr>
+              <tr> 
+                <td class="cellsubmenu" nowrap>&nbsp;Suicides:</td>
+                <td class="value">{MY_SUICIDES}</td>
+              </tr>
+              <tr> 
+                <td class="cellsubmenu" nowrap>&nbsp;Teamkills:</td>
+                <td  class="value">{MY_TEAMKILLS}</td>
+              </tr>
+              <tr> 
+                <td class="cellsubmenu" nowrap>&nbsp;Played Time:</td>
+                <td  class="value">{MY_PLAYEDTIME}</td>
+              </tr>
+	          
+			  <!-- BEGIN GT_FLAGCAPT -->
+              <tr> 
+                <td class="cellsubmenu" nowrap>&nbsp;Flags Captured:</td>
+                <td class="value">{MY_FLAGS_CAPT}</td>
+              </tr>
+			  <!-- END GT_FLAGCAPT -->
+			  <!-- BEGIN GT_FLAGKILL -->
+              <tr> 
+                <td class="cellsubmenu" nowrap>&nbsp;Flags Defended:</td>
+                <td class="value">{MY_FLAGS_DEF}</td>
+              </tr>
+			  <!-- END GT_FLAGKILL -->
+			  <!-- BEGIN GT_BRIEFCAPT -->
+              <tr> 
+                <td class="cellsubmenu" nowrap>&nbsp;Briefcases Captured:</td>
+                <td class="value">{MY_BRIEF_CAPT}</td>
+              </tr>
+			  <!-- END GT_BRIEFCAPT -->
+			  <!-- BEGIN GT_BRIEFKILL -->
+              <tr> 
+                <td class="cellsubmenu" nowrap>&nbsp;Briefcases Defended:</td>
+                <td class="value">{MY_BRIEF_DEF}</td>
+              </tr>
+			  <!-- END GT_BRIEFKILL -->
+            </table>
+            <BR> </td>
+          <!-- BEGIN OTHERNAMES -->
+          <td width="50%" valign="top" nowrap> 
+            <div align="center"><br>
+              <table width="90%" border="0" cellspacing="0" cellpadding="0" class="table_with_border">
+                <tr> 
+                  <td colspan="2" class="cellmenu1">&nbsp;Also known as: </td>
+                </tr>
+                <tr>
+                  <td colspan="2" class="topmenu_sub"><img src="{BASEWEB}images/misc/transparent.gif" height="1" width="1"></td>
+                </tr>
+                <tr> 
+                  <td width="3%" class="cellsubmenu">&nbsp;</td>
+                  <td width="97%" class="cellsubmenu" nowrap><B>{OTHERNAMES}</B></td>
+                </tr>
+              </table>
+            </div></td>
+          <!-- END OTHERNAMES -->
+        </tr>
+      </table>
+
+      </td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td>
+		<BR>
+		<a name="favweapons"></a>
+		
+		<table width="90%" border="0" cellspacing="0" cellpadding="0" class="table_with_border" align="center">
+        <tr><td colspan="4" class="topmenu" align="center" height="20"><B>{NAME_HTML} 's Favorite Weapons</B></td></tr>
+        <tr><td colspan="4" class="topmenu_sub"><img src="{BASEWEB}images/misc/transparent.gif" height="1" width="1"></td></tr>
+        
+        <tr class="cellmenu1"> 
+          <td width="10%" class="cellmenu1">&nbsp;</td>
+          <td width="40%" class="cellmenu1"><strong>&nbsp;Weapon</strong> </td>
+          <td width="20%" class="cellmenu1"><strong>&nbsp;Kills</strong></td>
+          <td width="30%" class="cellmenu1"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ratio of total Kills</strong></td>
+        </tr>
+        <tr><td colspan="4" class="topmenu_sub"><img src="{BASEWEB}images/misc/transparent.gif" height="1" width="1"></td></tr>
+        <!-- BEGIN DATA_FAVWP -->
+        <tr class="line{ODDROW}"> 
+          <td class="tr_width_border">&nbsp;{ZAEHLER}.</td>
+          <td class="tr_width_border">&nbsp;&nbsp;<a class="mylink" href="weapon{EXTENSION}?mod={WEAP_MOD}" target="_top">{WEAP}</A></td>
+          <td class="tr_width_border">&nbsp;{Kills}</td>
+          <td class="tr_width_border">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="{BASEWEB}images/misc/{STYLESHEET}/main.gif" width="{IMG_WIDTH}" height="6">&nbsp;{RATIO}&nbsp;%</td>
+        </tr>
+        <!-- END DATA_FAVWP -->
+      </table>
+	  
+	  </td>
+    <td>&nbsp;</td>
+  </tr>
+
+<!-- BEGIN DOESNT_WORK_YET -->
+  <tr> 
+    <td>&nbsp;</td>
+    <td>
+		<BR>
+		<a name="killedbyweapon"></a>
+		
+		<table width="90%" border="0" cellspacing="0" cellpadding="0" class="table_with_border" align="center">
+        <tr><td colspan="4" class="topmenu" align="center" height="20"><B>Weapons which killed {NAME_HTML}</B></td></tr>
+        <tr><td colspan="4" class="topmenu_sub"><img src="{BASEWEB}images/misc/transparent.gif" height="1" width="1"></td></tr>
+        
+        <tr class="cellmenu1"> 
+          <td width="10%" class="cellmenu1">&nbsp;</td>
+          <td width="40%" class="cellmenu1"><strong>&nbsp;Weapon</strong> </td>
+          <td width="20%" class="cellmenu1"><strong>&nbsp;Kills</strong></td>
+          <td width="30%" class="cellmenu1"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ratio of total Kills</strong></td>
+        </tr>
+        <tr><td colspan="4" class="topmenu_sub"><img src="{BASEWEB}images/misc/transparent.gif" height="1" width="1"></td></tr>
+        <!-- BEGIN DATA_WPK -->
+        <tr class="line{ODDROW}"> 
+          <td class="tr_width_border">&nbsp;{ZAEHLER}.</td>
+          <td class="tr_width_border">&nbsp;{WEAP}</td>
+          <td class="tr_width_border">&nbsp;{Kills}</td>
+          <td class="tr_width_border">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="{BASEWEB}images/misc/{STYLESHEET}/main.gif" width="{IMG_WIDTH}" height="6">&nbsp;{RATIO}&nbsp;%</td>
+        </tr>
+        <!-- END DATA_WPK -->
+      </table>
+	  
+	  </td>
+    <td>&nbsp;</td>
+  </tr>
+<!-- END DOESNT_WORK_YET -->
+
+  <tr> 
+    <td>&nbsp;</td>
+    <td>
+		<BR>
+		<a name="favtargets"></a>
+
+		<table width="90%" border="0" cellspacing="0" cellpadding="0" class="table_with_border" align="center">
+        <tr><td colspan="4" class="topmenu" align="center" height="20"><B>{NAME_HTML} 's Favorite Targets</B></td></tr>
+        <tr><td colspan="4" class="topmenu_sub"><img src="{BASEWEB}images/misc/transparent.gif" height="1" width="1"></td></tr>
+        <tr class="cellmenu1"> 
+          <td class="cellmenu1" width="10%" nowrap>&nbsp;</td>
+          <td class="cellmenu1" width="40%" nowrap><B>&nbsp;Victim</B></td>
+          <td class="cellmenu1"  width="20%" nowrap> <strong>&nbsp;Kills</strong></td>
+          <td class="cellmenu1" width="30%" nowrap> <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ratio of total Kills</strong></td>
+        </tr>
+        <tr> 
+          <td colspan="4" class="topmenu_sub"><img src="{BASEWEB}images/misc/transparent.gif" height="1" width="1"></td>
+        </tr>
+        <!-- BEGIN DATA_FAVTAR -->
+        <tr class="line{ODDROW}"> 
+          <td class="tr_width_border">&nbsp;{ZAEHLER}.</td>
+          <td class="tr_width_border">&nbsp;<a href="player_details{EXTENSION}?ID={ID_ENEMY}" title="view details of - {ENEMY}" class="mylink">{ENEMY_HTML}</a></td>
+          <td class="tr_width_border">&nbsp;{AllKills}</td>
+          <td class="tr_width_border">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="{BASEWEB}images/misc/{STYLESHEET}/main.gif" width="{IMG_WIDTH}" height="6">&nbsp;{RATIO}&nbsp;%</td>
+        </tr>
+        <!-- END DATA_FAVTAR -->
+      </table>
+	  
+	</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td>
+		<BR>
+		</td>
+
+		</tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+      </table></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="3" align="center">
+		<table width="75%" border="0" align="center" cellpadding="0" cellspacing="0" class="table_with_border">
+		<tr>
+			<td class="cellmenu1" align="center"><a href=hitlocations.php?ID={MY_ID} target="_blank"><B>Hit Locations (OPENS IN POPUP)</B></a></td>
+		</tr>
+		</table>
+		<BR><BR>
+        <!-- INCLUDE footer.html -->
+    </td>
+  </tr>
+</table>

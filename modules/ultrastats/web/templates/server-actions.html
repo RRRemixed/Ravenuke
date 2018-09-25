@@ -1,0 +1,73 @@
+<!-- INCLUDE site_header.html --> 
+<!-- INCLUDE menu.html -->
+<center>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td width="5">&nbsp;</td>
+    <td width="530"><BR>&nbsp;<BR></td>
+    <td width="5">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td>
+		
+		<table align="center" width="100%" border="0" cellpadding="0"  cellspacing="0" class="table_with_border">
+		<tr> 
+		  <td width="10" class="cellmenu1">&nbsp;</td>
+		  <td width="50" class="cellmenu1" height="20"><B>&nbsp;#</B></td>
+		  <td width="150" class="cellmenu1" nowrap align=center><B>Command</B></td>
+		  <td width="100%" class="cellmenu1" align="center"><B>Details</B></td>
+		</tr>
+		<tr> 
+		  <td colspan="4" class="topmenu_sub"><img src="{BASEWEB}images/misc/transparent.gif" height="1" width="1"></td>
+		</tr>
+		<tr> 
+		  <td colspan="4" class="cellsubmenu"><img src="{BASEWEB}images/misc/transparent.gif" height="5" width="1"></td>
+		</tr>
+		<!-- BEGIN commands -->
+		<tr> 
+		  <td width="10" class="cellsubmenu">&nbsp;</td>
+		  <td class="cellsubmenu" valign="top" nowrap><b>&nbsp;{POSCOUNTER}.</b></td>
+		  <td class="cellsubmenu" align="center" valign="top" nowrap><B>{command}</B></td>
+		  <td align="center" valign="middle" class="cellsubmenu"> 
+
+			<BR>
+			<table align="center" width="300" border="0" cellpadding="2"  cellspacing="0" class="table_with_border">
+
+			<tr>
+			 <td class="cellmenu1" width="50" align="center"><b>Count</b></td>
+			 <td class="cellmenu1" width="50" nowrap align="center"><b>Passed</b></TD>
+			 <td class="cellmenu1" width="100%" align="center"><b>Value</b></td>
+			</tr>
+
+			<!-- BEGIN DETAILDATA -->
+			<tr class="{detail_style}">
+			 <td class="tr_width_border" align="center">{count}</td>
+			 <td class="tr_width_border" align="center">{Successfull}</TD>
+			 <td class="tr_width_border" align="center">{value}</td>
+			</tr>
+			<!-- END DETAILDATA -->
+
+			</table>
+
+		    <BR>
+		  </td>
+		</tr>
+		<!-- END commands -->
+		</table>
+
+	</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="3" align="center">
+        <!-- INCLUDE footer.html -->
+	</td>
+  </tr>
+</table>
+</center>

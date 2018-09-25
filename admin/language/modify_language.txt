@@ -1,0 +1,6 @@
+#########################################################################
+##  FILE REPOSITORY - Copyright 2006 - Mark Hufford - GuitarVoice.com  ##
+#########################################################################
+
+//ADD THE FOLLOWING LINE TO YOUR LANGUAGE FILE:
+define("_FILEREPOSITORY","File Repository");

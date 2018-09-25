@@ -1,0 +1,251 @@
+<table align="center" width="30%" border="0" cellspacing="0" cellpadding="0"><tr><td>
+
+<!--<input type="textbox" id="debug">-->
+
+<script type='text/javascript' src='{BASEWEB}js/common.js'></script>
+<script type='text/javascript' src='{BASEWEB}js/{STYLESHEET}-menuoptionen.js'></script>
+<SCRIPT language=JavaScript src="{BASEWEB}js/menu_misc.js" type=text/javascript></SCRIPT>	
+<script	language=JavaScript>
+	if(ns4)
+		_d.write("<scr"+"ipt language=JavaScript src={BASEWEB}js/menu_ns4.js><\/scr"+"ipt>");		
+	else
+		_d.write("<scr"+"ipt language=JavaScript src={BASEWEB}js/menu_dom.js><\/scr"+"ipt>"); 
+</script>
+
+<script language=javascript>
+	_menuCloseDelay=verzoegerung;
+	_menuOpenDelay=50	          // The time delay before menus open on mouse over
+	_followSpeed=5                // Follow scrolling speed
+	_followRate=40                // Follow scrolling Rate
+	_subOffsetTop=10              // Sub menu top offset
+	_subOffsetLeft=-10            // Sub menu left offset
+	_scrollAmount=3               // Only needed for Netscape 4.x
+	_scrollDelay=20               // Only needed for Netcsape 4.x
+
+with(myMnuStyle = new MenuStyle())
+{
+	onbgcolor		=	onmouseoverhintergrund;
+	oncolor			=	onmouseoverschriftfarbe;
+	offbgcolor		=	hintergrundfarbe;
+	offcolor		=	menupunktschriftfarbe;
+	bordercolor		=	rahmenfarbe;
+	borderstyle		=	"solid";
+	borderwidth		=	rahmenbreite;
+	separatorcolor	=	rahmenfarbe;
+	separatorsize	=	"1";
+	padding			=	2;
+	fontsize		=	schriftgroesse;
+	fontstyle		=	"normal";
+	fontfamily		=	schriftart;
+	pagecolor		=	onmouseoverschriftfarbe; //"black";
+	pagebgcolor		=	onmouseoverhintergrund //"#82B6D7";
+	headercolor		=	menupunktschriftfarbe;
+	headerbgcolor	=	hintergrundfarbe;
+	subimage		=	"";
+	subimagepadding	=	"";
+	overfilter		=	"Fade(duration=0.2);Alpha(opacity=90);Shadow(color='"+rahmenfarbe+"', Direction=135, Strength=5)";
+	outfilter		=	"RandomBars(duration=0.3)";
+}
+
+with(myMenu=new menuname("MSbMnun Menu"))
+{
+	style=myMnuStyle;
+	alwaysvisible=1;
+	orientation="horizontal";
+	position="relative";
+	align="center";
+	SbMnu("text=&nbsp;Awards&nbsp;url=index{EXTENSION};status=Back To Home Page;");
+	SbMnu("text=&nbsp;Player Stats&nbsp;showmenu=Player;url=players{EXTENSION};");
+	SbMnu("text=&nbsp;Search&nbsp;url=search{EXTENSION};");
+	SbMnu("text=&nbsp;Weapon Stats&nbsp;showmenu=Weapons;");
+
+<!-- IF MOD_NAME="OSP" -->
+	SbMnu("text=&nbsp;OSP&nbsp;showmenu=OspWeapons;");
+<!-- ENDIF MOD_NAME="OSP" -->
+<!-- IF MOD_NAME="ICS" -->
+	SbMnu("text=&nbsp;ICS&nbsp;showmenu=IcsWeapons;");
+<!-- ENDIF MOD_NAME="ICS" -->
+<!-- IF MOD_NAME="ROC" -->
+	SbMnu("text=&nbsp;ROC&nbsp;showmenu=RocWeapons;");
+<!-- ENDIF MOD_NAME="ROC" -->
+
+	SbMnu("text=&nbsp;Server Stats&nbsp;showmenu=Server;url=server{EXTENSION};");
+	SbMnu("text=&nbsp;About&nbsp;url=about{EXTENSION};status=More about UltraStats;");
+	SbMnu("text=&nbsp;;itemwidth=100%;");
+}
+
+with(myMenu=new menuname("Player"))
+{
+	style=myMnuStyle;
+	overflow="scroll";
+	SbMnu("text=By Kills;url=players{EXTENSION}?order=Kills;");
+	SbMnu("text=By Deaths;url=players{EXTENSION}?order=Deaths;");
+	SbMnu("text=By Suicides;url=players{EXTENSION}?order=Suicides;");
+	SbMnu("text=By Skill;url=players{EXTENSION}?order=Skill;");
+	SbMnu("text=By Team Kills;url=players{EXTENSION}?order=team_kills;");
+
+<!-- BEGIN GT_FLAGCAPT_MENU -->
+	SbMnu("text=By Flags Caps;url=players{EXTENSION}?order=Flags_capt;");
+<!-- END GT_FLAGCAPT_MENU -->
+<!-- BEGIN GT_FLAGKILL_MENU -->
+	SbMnu("text=By Flag Defs;url=players{EXTENSION}?order=Flags_killed;");
+<!-- END GT_FLAGKILL_MENU -->
+<!-- BEGIN GT_BRIEFCAPT_MENU -->
+	SbMnu("text=By Briefcases Caps;url=players{EXTENSION}?order=Briefcases;");
+<!-- END GT_BRIEFCAPT_MENU -->
+<!-- BEGIN GT_BRIEFKILL_MENU -->
+	SbMnu("text=By Briefcase Defs;url=players{EXTENSION}?order=Briefcases_killed;");
+<!-- END GT_BRIEFKILL_MENU -->
+
+	SbMnu("text=By Time;url=players{EXTENSION}?order=Time;");
+	SbMnu("text=By Efficiency Ratio;url=players{EXTENSION}?order=Effency;");
+}
+
+
+with(myMenu=new menuname("Server"))
+{
+	style=myMnuStyle;
+	overflow="scroll";
+	SbMnu("text=Overall Stats;url=server{EXTENSION};");
+	SbMnu("text=<B>Live Status</B>;url=server-live{EXTENSION};");
+	SbMnu("text=Most played maps;url=server-maps{EXTENSION};");
+//	SbMnu("text=Most played Gametypes;url=server-gametypes{EXTENSION};");
+	SbMnu("text=Callvote Stats;url=server-actions{EXTENSION}?type=1;");
+	SbMnu("text=Adminaction Stats;url=server-actions{EXTENSION}?type=2;");
+}
+
+with(myMenu=new menuname("Weapons"))
+{
+	style=myMnuStyle;
+	orientation="horizontal";
+	SbMnu("text=Primary Weapon;showmenu=WeaponPrimary;");
+	SbMnu("text=Secondary Weapon;showmenu=WeaponSecondary;");
+	SbMnu("text=Sidearm;showmenu=WeaponPistols;");
+	SbMnu("text=Grenade;showmenu=WeaponGrenades;");
+}
+
+with(myMenu=new menuname("WeaponPrimary"))
+{
+	style=myMnuStyle;
+	overflow="scroll";
+	SbMnu("text=AK74 Assault Rifle;url=weapon{EXTENSION}?mod=MOD_AK74_ASSAULT_RIFLE;");
+	SbMnu("text=AK74 Bayonet;url=weapon{EXTENSION}?mod=MOD_AK74_ASSAULT_RIFLE_ALT;");
+	SbMnu("text=M4;url=weapon{EXTENSION}?mod=MOD_M4_ASSAULT_RIFLE;");
+	SbMnu("text=M4 Nade;url=weapon{EXTENSION}?mod=MOD_M4_ASSAULT_RIFLE_ALT;");
+	SbMnu("text=MP5;url=weapon{EXTENSION}?mod=MOD_MP5;");
+	SbMnu("text=Sig551;url=weapon{EXTENSION}?mod=MOD_SIG551;");
+	SbMnu("text=M60;url=weapon{EXTENSION}?mod=MOD_M60_MACHINEGUN;");
+	SbMnu("text=MSG90A1;url=weapon{EXTENSION}?mod=MOD_MSG90A1_SNIPER_RIFLE;");
+	SbMnu("text=USAS12;url=weapon{EXTENSION}?mod=MOD_USAS_12_SHOTGUN;");
+	SbMnu("text=RPG;url=weapon{EXTENSION}?mod=MOD_RPG7_LAUNCHER;");
+	SbMnu("text=MM1;url=weapon{EXTENSION}?mod=MOD_MM1_GRENADE_LAUNCHER;");
+}
+
+with(myMenu=new menuname("WeaponSecondary"))
+{
+	style=myMnuStyle;
+	overflow="scroll";
+	SbMnu("text=Shotgun;url=weapon{EXTENSION}?mod=MOD_M590_SHOTGUN;");
+	SbMnu("text=Shottie Butt;url=weapon{EXTENSION}?mod=MOD_M590_SHOTGUN_ALT;");
+	SbMnu("text=Micro Uzi;url=weapon{EXTENSION}?mod=MOD_MICRO_UZI_SUBMACHINEGUN;");
+	SbMnu("text=M3A1;url=weapon{EXTENSION}?mod=MOD_M3A1_SUBMACHINEGUN;");
+}
+
+with(myMenu=new menuname("WeaponPistols"))
+{
+	style=myMnuStyle;
+	overflow="scroll";
+	SbMnu("text=US-Socom;url=weapon{EXTENSION}?mod=MOD_US_SOCOM_PISTOL;");
+	SbMnu("text=Socom PistolWhip;url=weapon{EXTENSION}?mod=MOD_US_SOCOM_PISTOL_ALT;");
+	SbMnu("text=M1911A1;url=weapon{EXTENSION}?mod=MOD_M1911A1_PISTOL;");
+	SbMnu("text=M1911A1 PistolWhip;url=weapon{EXTENSION}?mod=MOD_M1911A1_PISTOL_ALT;");
+	SbMnu("text=Silver Talon;url=weapon{EXTENSION}?mod=MOD_SILVER_TALON;");
+	SbMnu("text=Talon PistolWhip;url=weapon{EXTENSION}?mod=MOD_SILVER_TALON_ALT;");
+	SbMnu("text=Knife;url=weapon{EXTENSION}?mod=MOD_KNIFE;");
+	SbMnu("text=Knife Thrown;url=weapon{EXTENSION}?mod=MOD_KNIFE_ALT;");
+}
+
+with(myMenu=new menuname("WeaponGrenades"))
+{
+	style=myMnuStyle;
+	overflow="scroll";
+	SbMnu("text=SMOGH92 Frag;url=weapon{EXTENSION}?mod=MOD_SMOHG92_GRENADE;");
+	SbMnu("text=SMOGH92 Rolled;url=weapon{EXTENSION}?mod=MOD_SMOHG92_GRENADE_ALT;");
+	SbMnu("text=ANM14 Fire;url=weapon{EXTENSION}?mod=MOD_ANM14_GRENADE;");
+	SbMnu("text=ANM14 Rolled;url=weapon{EXTENSION}?mod=MOD_ANM14_GRENADE_ALT;");
+	SbMnu("text=M84 Flash;url=weapon{EXTENSION}?mod=MOD_M84_GRENADE;");
+	SbMnu("text=M15 Smoke;url=weapon{EXTENSION}?mod=MOD_M15_GRENADE;");
+}
+
+
+<!-- IF MOD_NAME="OSP" -->
+with(myMenu=new menuname("OspWeapons"))
+{
+	style=myMnuStyle;
+	orientation="horizontal";
+	SbMnu("text=Special Weapons;showmenu=OspWeaponSpecial;");
+}
+with(myMenu2=new menuname("OspWeaponSpecial"))
+{
+	style=myMnuStyle;
+	overflow="scroll";
+	SbMnu("text=Admin strike;url=weapon{EXTENSION}?mod=MOD_TARGET_LASER;");
+}
+<!-- ENDIF MOD_NAME="OSP" -->
+
+<!-- IF MOD_NAME="ICS" -->
+with(myMenu=new menuname("IcsWeapons"))
+{
+	style=myMnuStyle;
+	orientation="horizontal";
+	SbMnu("text=Primary Weapon;showmenu=IcsWeaponPrimary;");
+	SbMnu("text=Grenades;showmenu=IcsWeaponGrenades;");
+}
+with(myMenu=new menuname("IcsWeaponPrimary"))
+{
+	style=myMnuStyle;
+	overflow="scroll";
+	SbMnu("text=OICW;url=weapon{EXTENSION}?mod=MOD_OICW;");
+	SbMnu("text=OICW 20MM Nade;url=weapon{EXTENSION}?mod=MOD_OICW_ALT;");
+}
+with(myMenu=new menuname("IcsWeaponGrenades"))
+{
+	style=myMnuStyle;
+	overflow="scroll";
+	SbMnu("text=L2A2 Frag;url=weapon{EXTENSION}?mod=MOD_L2A2_GRENADE;");
+	SbMnu("text=L2A2 Frag Rolled;url=weapon{EXTENSION}?mod=MOD_L2A2_GRENADE_ALT;");
+	SbMnu("text=MDN11 Frag;url=weapon{EXTENSION}?mod=MOD_MDN11_GRENADE;");
+	SbMnu("text=MDN11 Frag Rolled;url=weapon{EXTENSION}?mod=MOD_MDN11_GRENADE_ALT;");
+	SbMnu("text=F1 Frag;url=weapon{EXTENSION}?mod=MOD_F1_GRENADE;");
+	SbMnu("text=F1 Frag Rolled;url=weapon{EXTENSION}?mod=MOD_F1_GRENADE_ALT;");
+	SbMnu("text=M67 Frag;url=weapon{EXTENSION}?mod=MOD_M67_GRENADE;");
+	SbMnu("text=M67 Frag Rolled;url=weapon{EXTENSION}?mod=MOD_M67_GRENADE_ALT;");
+	SbMnu("text=M7A3 Gas;url=weapon{EXTENSION}?mod=MOD_M7A3_GRENADE;");
+	SbMnu("text=M7A3 Gas Rolled;url=weapon{EXTENSION}?mod=MOD_M7A3_GRENADE_ALT;");
+}
+<!-- ENDIF MOD_NAME="ICS" -->
+
+<!-- IF MOD_NAME="ROC" -->
+with(myMenu=new menuname("RocWeapons"))
+{
+	style=myMnuStyle;
+	orientation="horizontal";
+	SbMnu("text=Special Weapons;showmenu=RocWeaponSpecial;");
+}
+with(myMenu2=new menuname("RocWeaponSpecial"))
+{
+	style=myMnuStyle;
+	overflow="scroll";
+	SbMnu("text=Admin strike;url=weapon{EXTENSION}?mod=MOD_STRIKE;");
+	SbMnu("text=Admin Telefrag;url=weapon{EXTENSION}?mod=MOD_ADMIN_TELEFRAG;");
+	SbMnu("text=Admin Fry;url=weapon{EXTENSION}?mod=MOD_ADMIN_FRY;");
+	SbMnu("text=Admin Explode;url=weapon{EXTENSION}?mod=MOD_ADMIN_EXPLODE;");
+	SbMnu("text=Admin Slap;url=weapon{EXTENSION}?mod=MOD_ADMIN_SLAP;");
+}
+<!-- ENDIF MOD_NAME="ROC" -->
+
+
+// This will draw the menus
+MakeMenus();
+</script>
+</td></tr></table>

@@ -1,0 +1,214 @@
+<!-- INCLUDE site_header.html --> 
+
+		<a name="hitlocation"></a>
+		<br><br>
+		<table width="90%" border="0" cellspacing="0" cellpadding="0" class="table_with_border" align="center">
+        <tr><td colspan="3" class="topmenu" align="center" height="20"><B>{NAME_HTML} 's Hit Locations</B></td></tr>
+        <tr><td colspan="3" class="topmenu_sub"><img src="{BASEWEB}images/misc/transparent.gif" height="1" width="1"></td></tr>
+        <tr> 
+          <td width="28%" valign="top">
+			<BR>
+
+			<table width="95%" border="0" align="center" cellpadding="0" cellspacing="0" class="table_with_border">
+              <tr > 
+                <td colspan="3" class="topmenu" align="center">
+					Hit Locations<br>
+                    (since OSP 0.3i)<br>
+                    <br>
+                </td>
+              </tr>
+              <tr class="cellmenu1"> 
+                <td width="36%" class="cellmenu1">&nbsp;Kills</td>
+                <td width="64%" class="cellmenu1">&nbsp;Bodypart</td>
+              </tr>
+              <tr> 
+                <td colspan="2" class="topmenu_sub"><img src="{BASEWEB}images/misc/transparent.gif" height="1" width="1"></td>
+              </tr>
+              <!-- BEGIN DATA_HITL -->
+              <tr class="line0"> 
+                <td class="tr_width_border" height="13">&nbsp;{TREFFER}</td>
+                <td class="tr_width_border">&nbsp;{BODYPART}</td>
+              </tr>
+              <!-- END DATA_HITL -->
+            </table>
+			
+			<BR>
+
+            <table border="0" align="center" cellpadding="1" cellspacing="0">
+              <tr> 
+                <td class="cellmenu1" align="center"><small>Prom. Guard</small></td>
+                <td class="cellmenu1" align="center"><small>Col. Soldier</small></td>
+                <td class="cellmenu1" align="center"><small>Czech Sergeant</small></td>
+              </tr>
+              <tr> 
+                <td class="table_with_border" width="50"><a href=hitlocations.php?ID={MY_ID}&MODEL=1#hitlocation><img src="{BASEWEB}images/mini_models/model1.gif" alt="click to view this  model..." width="50" height="100" border="0"></a></td>
+                <td class="table_with_border" width="50"><a href=hitlocations.php?ID={MY_ID}&MODEL=2#hitlocation><img src="{BASEWEB}images/mini_models/model2.gif" alt="click to view this  model..." width="50" height="100" border="0"></a></td>
+                <td class="table_with_border" width="50"><a href=hitlocations.php?ID={MY_ID}&MODEL=3#hitlocation><img src="{BASEWEB}images/mini_models/model3.gif" alt="click to view this  model..." width="50" height="100" border="0"></a></td>
+              </tr>
+              <tr><td colspan="3">&nbsp;</td></tr>
+            </table>
+
+          </td>
+          <td colspan="2" align="center" valign="top">
+		  <BR>
+
+		  <TABLE WIDTH=500 BORDER=0 CELLPADDING=0 CELLSPACING=0 class="table_with_border">
+		  <TR> 
+			<TD COLSPAN="15" class="cellmenu1" align="center">
+			<!-- STYLE="position : absolute;visibility : hidden;z-index:1"-->
+			<span ID="model_details">&nbsp;</span>
+			</td>
+		  </tr>
+		  <tr><td COLSPAN="15" class="topmenu_sub"><img src="{BASEWEB}images/misc/transparent.gif" height="1" width="1"></td></tr>
+
+		  <TR> 
+			<TD ROWSPAN=13> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/soldiers_02.jpg" WIDTH=14 HEIGHT=544 ALT=""></TD>
+			<TD COLSPAN=3 ROWSPAN=3> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/filler03.jpg" WIDTH=184 HEIGHT=72 ALT=""></TD>
+			<TD COLSPAN=11> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/soldiers_04.jpg" WIDTH=302 HEIGHT=1 ALT=""></TD>
+			<TD> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/spacer.gif" WIDTH=1 HEIGHT=1 ALT=""></TD>
+		  </TR>
+		  <TR> 
+			<TD COLSPAN=5 ROWSPAN=3> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/head_{NAME_1024}.jpg" WIDTH=101 HEIGHT=79 ALT="" onMouseOver="ModelPOP('Head', '{NAME_1024}');" onMouseOut="ModelPOPKill();"></TD>
+			<TD COLSPAN=6> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/soldiers_06.jpg" WIDTH=201 HEIGHT=1 ALT=""></TD>
+			<TD> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/spacer.gif" WIDTH=1 HEIGHT=1 ALT=""></TD>
+		  </TR>
+		  <TR> 
+			<TD COLSPAN=4> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/filler07.jpg" WIDTH=182 HEIGHT=70 ALT=""></TD>
+			<TD COLSPAN=2 ROWSPAN=5> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/soldiers_08.jpg" WIDTH=19 HEIGHT=141 ALT=""></TD>
+			<TD></TD>
+		  </TR>
+		  <TR> 
+			<TD COLSPAN=3 ROWSPAN=4> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/arm_right_{NAME_32768}.jpg" onMouseOver="ModelPOP('Right Arm', '{NAME_32768}');" onMouseOut="ModelPOPKill();" WIDTH=184 HEIGHT=71 ALT=""></TD>
+			<TD COLSPAN=4 ROWSPAN=4> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/arm_left_{NAME_65536}.jpg" onMouseOver="ModelPOP('Left Arm', '{NAME_65536}');" onMouseOut="ModelPOPKill();" WIDTH=182 HEIGHT=71 ALT=""></TD>
+			<TD> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/spacer.gif" WIDTH=1 HEIGHT=8 ALT=""></TD>
+		  </TR>
+		  <TR> 
+			<TD ROWSPAN=2> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/shoulder_right_0.jpg" WIDTH=34 HEIGHT=20 ALT=""></TD>
+			<TD COLSPAN=3 ROWSPAN=2> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/neck_{NAME_262144}.jpg" onMouseOver="ModelPOP('Neck', '{NAME_262144}');" onMouseOut="ModelPOPKill();" WIDTH=37 HEIGHT=20 ALT=""></TD>
+			<TD> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/head-14.jpg" WIDTH=30 HEIGHT=1 ALT=""></TD>
+			<TD> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/spacer.gif" WIDTH=1 HEIGHT=1 ALT=""></TD>
+		  </TR>
+		  <TR> 
+			    <TD> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/shoulder_left_0.jpg" ALT="" WIDTH=30 HEIGHT=19 ></TD>
+			<TD> </TD>
+		  </TR>
+		  <TR> 
+			<TD COLSPAN=3> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/chest_right_{NAME_131072}.jpg" onMouseOver="ModelPOP('Right chest', '{NAME_131072}');" onMouseOut="ModelPOPKill();" ALT="" WIDTH=51 HEIGHT=43 hspace="0" vspace="0" align="absbottom"></TD>
+			<TD COLSPAN=2> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/chest_left_{NAME_131072}.jpg" onMouseOver="ModelPOP('Left chest', '{NAME_131072}');" onMouseOut="ModelPOPKill();" ALT="" WIDTH=50 HEIGHT=43 hspace="0" vspace="0" align="absbottom"></TD>
+			<TD> </TD>
+		  </TR>
+		  <TR> 
+			<TD COLSPAN=2 ROWSPAN=2> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/filler17.jpg" WIDTH=170 HEIGHT=105 ALT=""></TD>
+			<TD COLSPAN=7> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/chest_{NAME_131072}.jpg" onMouseOver="ModelPOP('Chest', '{NAME_131072}');" onMouseOut="ModelPOPKill();" WIDTH=127 HEIGHT=56 ALT=""></TD>
+			<TD COLSPAN=4 ROWSPAN=2> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/filler19.jpg" WIDTH=171 HEIGHT=105 ALT=""></TD>
+			<TD ROWSPAN=6> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/soldiers_20.jpg" WIDTH=18 HEIGHT=401 ALT=""></TD>
+			<TD> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/spacer.gif" WIDTH=1 HEIGHT=56 ALT=""></TD>
+		  </TR>
+		  <TR> 
+			<TD COLSPAN=7> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/waist_{NAME_2048}.jpg" onMouseOver="ModelPOP('Waist', '{NAME_2048}');" onMouseOut="ModelPOPKill();" WIDTH=127 HEIGHT=49 ALT=""></TD>
+			<TD> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/spacer.gif" WIDTH=1 HEIGHT=49 ALT=""></TD>
+		  </TR>
+		  <TR> 
+			<TD ROWSPAN=3> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/filler22.jpg" WIDTH=115 HEIGHT=249 ALT=""></TD>
+			<TD COLSPAN=4> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/right_upper_leg_{NAME_4}.jpg" onMouseOver="ModelPOP('Right upper leg', '{NAME_4}');" onMouseOut="ModelPOPKill();" WIDTH=119 HEIGHT=88 ALT=""></TD>
+			<TD COLSPAN=5> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/left_upper_leg_{NAME_8}.jpg" onMouseOver="ModelPOP('Left upper leg', '{NAME_8}');" onMouseOut="ModelPOPKill();" WIDTH=120 HEIGHT=88 ALT=""></TD>
+			<TD ROWSPAN=4> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/soldiers_25.jpg" WIDTH=1 HEIGHT=296 ALT=""></TD>
+			<TD COLSPAN=2 ROWSPAN=3> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/filler26.jpg" WIDTH=113 HEIGHT=249 ALT=""></TD>
+			<TD> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/spacer.gif" WIDTH=1 HEIGHT=88 ALT=""></TD>
+		  </TR>
+		  <TR> 
+			<TD COLSPAN=4> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/right_lower_leg_{NAME_16}.jpg" onMouseOver="ModelPOP('Right lower leg', '{NAME_16}');" onMouseOut="ModelPOPKill();" WIDTH=119 HEIGHT=69 ALT=""></TD>
+			<TD COLSPAN=5> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/left_lower_leg_{NAME_32}.jpg" onMouseOver="ModelPOP('Left lower leg', '{NAME_32}');" onMouseOut="ModelPOPKill();" WIDTH=120 HEIGHT=69 ALT=""></TD>
+			<TD> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/spacer.gif" WIDTH=1 HEIGHT=69 ALT=""></TD>
+		  </TR>
+		  <TR> 
+			<TD COLSPAN=4> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/right_foot_0.jpg" WIDTH=119 HEIGHT=92 ALT=""></TD>
+			<TD COLSPAN=5> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/left_foot_0.jpg" WIDTH=120 HEIGHT=92 ALT=""></TD>
+			<TD> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/spacer.gif" WIDTH=1 HEIGHT=92 ALT=""></TD>
+		  </TR>
+		  <TR> 
+			<TD COLSPAN=10> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/soldiers_31.jpg" WIDTH=354 HEIGHT=47 ALT=""></TD>
+			<TD COLSPAN=2> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/soldiers_32.jpg" WIDTH=113 HEIGHT=47 ALT=""></TD>
+			<TD> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/spacer.gif" WIDTH=1 HEIGHT=47 ALT=""></TD>
+		  </TR>
+		  <TR> 
+			<TD> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/spacer.gif" WIDTH=14 HEIGHT=1 ALT=""></TD>
+			<TD> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/spacer.gif" WIDTH=115 HEIGHT=1 ALT=""></TD>
+			<TD> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/spacer.gif" WIDTH=55 HEIGHT=1 ALT=""></TD>
+			<TD> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/spacer.gif" WIDTH=14 HEIGHT=1 ALT=""></TD>
+			<TD> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/spacer.gif" WIDTH=34 HEIGHT=1 ALT=""></TD>
+			<TD> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/spacer.gif" WIDTH=16 HEIGHT=1 ALT=""></TD>
+			<TD> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/spacer.gif" WIDTH=1 HEIGHT=1 ALT=""></TD>
+			<TD> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/spacer.gif" WIDTH=20 HEIGHT=1 ALT=""></TD>
+			<TD> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/spacer.gif" WIDTH=30 HEIGHT=1 ALT=""></TD>
+			<TD> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/spacer.gif" WIDTH=12 HEIGHT=1 ALT=""></TD>
+			<TD> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/spacer.gif" WIDTH=57 HEIGHT=1 ALT=""></TD>
+			<TD> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/spacer.gif" WIDTH=1 HEIGHT=1 ALT=""></TD>
+			<TD> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/spacer.gif" WIDTH=112 HEIGHT=1 ALT=""></TD>
+			<TD> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/spacer.gif" WIDTH=1 HEIGHT=1 ALT=""></TD>
+			<TD> <IMG SRC="{BASEWEB}images/model{MODELNUMBER}/spacer.gif" WIDTH=18 HEIGHT=1 ALT=""></TD>
+			<TD></TD>
+		  </TR>
+		</TABLE>
+        </TABLE>
+	<BR><BR>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+// --- Some Basic script needed for some visual nice stuff ---
+var nav = (document.layers); 
+var iex = (document.all);
+var skn = (nav) ? document.model_details : model_details.style;
+if (nav) 
+	document.captureEvents(Event.MOUSEMOVE);
+
+function ModelPOP(msg,damage)
+{
+	var color = "";
+	switch(damage)
+	{
+		case "10":
+			color = "#FFFF00"; break;
+		case "20":
+			color = "#FFDD00"; break;
+		case "30":
+			color = "#FFBB00"; break;
+		case "40":
+			color = "#FF9900"; break;
+		case "50":
+			color = "#FF7700"; break;
+		case "60":
+			color = "#FF5500"; break;
+		case "70":
+			color = "#FF3300"; break;
+		case "80":
+			color = "#FF1100"; break;
+		case "90":
+			color = "#EE0000"; break;
+		case "100":
+			color = "#CC0000"; break;
+	}
+	
+	var content ="Hitlocation: <B>"+msg+"</B> | Damage: <font color="+color+"><B>"+damage+"%</B></font>";
+
+	if (iex)
+		document.all("model_details").innerHTML = content;
+	else 
+	{
+		skn.document.write(content); 
+		skn.document.close();
+	}
+}
+function ModelPOPKill()
+{
+	var content ="&nbsp;";
+	if (iex)
+		document.all("model_details").innerHTML = content;
+	else
+	{
+		skn.document.write(content); 
+		skn.document.close();
+	}
+}
+//-->
+</script>
+<!-- INCLUDE footer.html -->

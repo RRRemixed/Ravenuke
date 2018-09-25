@@ -1,0 +1,124 @@
+<!-- INCLUDE site_header.html --> 
+<!-- INCLUDE menu.html -->
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td width="96%"><BR>&nbsp;<BR>&nbsp;<BR>&nbsp;<BR></td>
+  </tr>
+  <tr> 
+    <td>
+
+	<table border="0" cellspacing="0" cellpadding="0" align="center" class="table_with_border" width="500">
+	<TR><TD class="cellmenu1" height="20" colspan="3">
+      <p align="center"><B>{SERVERNAME} ({SERVERIP}:{SERVERPORT})</B></td></tr>
+	<tr><td class="topmenu_sub" align="center" colspan="3"><img src="{BASEWEB}images/misc/transparent.gif" height="1" width="1"></td></tr>
+
+	<TR class="cellsubmenu">
+		<TD width="40%">
+		<blockquote>
+			<BR><BR>
+			Players connected: <B>{PLAYERSCONNECTED}/{PLAYERSMAX}</B><BR>
+			Allow download: <B>{SERVERDOWNLOAD}</B><BR>
+			Running pure: <B>{SERVERPURE}</B><BR>
+			Password protected: <B>{SERVERNEEDPASS}</B><BR>
+			<BR>
+			Map running: <b>{SERVERMAPRUNNING}</B>
+		</blockquote>
+		</TD>
+		<TD width="200" align="center"><BR><img class="tr_width_border" src="{BASEWEB}images/level/{SERVERMAPPICTURE}.jpg" alt="{SERVERMAPPICTURE}" width="200" height="150"><BR><BR></TD>
+		<TD width="10" nowrap>&nbsp;</TD>
+	</TR>
+	</table>
+	
+	<table width="500" border="0" align="center" bgcolor="#000000">
+	<tr>
+	  <td align="center">
+		<font color="#FFFFFF" size="5"><B>{TEAMLEADTEXT}</B><br></font>
+		<font color="#FFFFFF" size="2">
+			Scorelimit : {SERVERSCORELIMIT} | Friendly fire : {SERVERFRIENDLYFIRE}<BR>
+		</font>
+	  </td>
+	</tr>
+	<tr>
+	  <td align="left" valign="middle">
+	  <blockquote>
+		<font Color="#FFFFFF"><B>{SERVERGAMETYPE}</B></font>
+	  </blockquote>
+
+		<table height="0%" border="0" align="center" cellspacing="10">
+		<tr> 
+		<td width="294" height="100%" align="center" valign="top">
+			<table width="100%" border="0" bgcolor="#222222">
+			<tr> 
+				<td width="84%" background="{BASEWEB}images/misc/blue.jpg">
+					<font color="#FFFFFF"><B>BLUE TEAM</B></font><br>
+					<font color="#FFFFFF" size="1">players {BLUETEAM_COUNT}</font>
+				 </td>
+				 <td width="16%" valign="top" background="{BASEWEB}images/misc/blue.jpg" align="right">
+					 <b><font color="#FFFFFF">{BLUETEAM_POINTS}</font></B>
+				 </td>
+			</tr>
+	<!-- BEGIN BLUETEAM -->
+			<tr>
+			<td bgcolor="#000000">
+				<font color="#FFFFFF"><B>{PLAYER_NAME}</B></font><br>
+				<font color="#CCCCCC" size="1">ping : {PLAYER_PING}</font><br>
+			</td>
+			<td valign="top" bgcolor="#000000" align="right">
+				<font color="#FFFFFF"><B>{PLAYER_POINTS}</B></font>
+			</td>
+			</tr>
+	<!-- END BLUETEAM -->
+		   </table>
+		</td>
+		<td width="295" height="100%" align="center" valign="top"> 
+			<table width="100%" border="0" bgcolor="#222222">
+			<tr> 
+				<td width="84%" background="{BASEWEB}images/misc/red.jpg">
+					<font color="#FFFFFF"><B>RED TEAM</B></font><br>
+					<font color="#FFFFFF" size="1">players {REDTEAM_COUNT}</font>
+				 </td>
+				 <td width="16%" valign="top" background="{BASEWEB}images/misc/red.jpg" align="right">
+					 <b><font color="#FFFFFF">{REDTEAM_POINTS}</font></B>
+				 </td>
+			</tr>			
+	<!-- BEGIN REDTEAM -->
+			<tr>
+			<td bgcolor="#000000">
+				<font color="#FFFFFF"><B>{PLAYER_NAME}</B></font><br>
+				<font color="#CCCCCC" size="1">ping : {PLAYER_PING}</font><br>
+			</td>
+			<td valign="top" bgcolor="#000000" align="right">
+				<font color="#FFFFFF"><B>{PLAYER_POINTS} {PLAYER_XXX}</B></font>
+			</td>
+			</tr>
+	<!-- END REDTEAM -->
+			</table>
+			</td>
+		</tr>
+		<tr>
+		 <td colspan=2><font color="#CCCCCC" size="1">SPECTATORS : 
+	<!-- BEGIN SPECTATORS -->
+	{PLAYER_NAME} (Ping {PLAYER_PING})
+	<!-- END SPECTATORS -->
+		</font></td>
+		</tr>
+
+		</table>
+		</td>
+	</tr>
+	</table>
+
+	</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center">
+        <!-- INCLUDE footer.html -->
+      </div></td>
+  </tr>
+</table>
+
+<br>

@@ -1,0 +1,93 @@
+<!-- INCLUDE site_header.html --> 
+<!-- INCLUDE menu.html -->
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td width="2%">&nbsp;</td>
+    <td width="96%"><BR>&nbsp;<BR></td>
+    <td width="2%">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td>
+		
+		<table align="center" width="100%" border="0" cellpadding="0"  cellspacing="0">
+		<tr>
+			<td>
+
+			<table align="left" border="0" cellpadding="0"  cellspacing="0">
+			<tr>
+				<td nowrap><B>Pages: &nbsp; </B></td>
+			<!-- BEGIN PAGES -->
+				<td nowrap><B><a href="?begin={BEGINPAGE}" target="_top" class="mylink">{PAGENUMBER}</a></B> | </td>
+			<!-- END PAGES -->
+				<td nowrap><I>&nbsp;{MORESTRING}</I></td>
+				<td nowrap width="100%" align="right"><B>{MAPCOUNT}</B> Maps listed</td>
+			</tr>
+			</table>
+			
+			</td>
+		</tr>
+		<tr> 
+		  <td><img src="{BASEWEB}images/misc/transparent.gif" height="5" width="1"></td>
+		</tr>
+		</table>
+
+		<table align="center" width="100%" border="0" cellpadding="0"  cellspacing="0" class="table_with_border">
+		<tr> 
+		  <td width="3%" class="cellmenu1"height="20">&nbsp;</td>
+		  <td width="5%" class="cellmenu1"><B>&nbsp;#</B></td>
+		  <td width="30%" class="cellmenu1" nowrap align=center><B>Details </B></td>
+		  <td width="55%" class="cellmenu1" align="center"><B>Map picture</B></td>
+		</tr>
+		<tr> 
+		  <td colspan="4" class="topmenu_sub"><img src="{BASEWEB}images/misc/transparent.gif" height="1" width="1"></td>
+		</tr>
+		<tr> 
+		  <td colspan="4" class="cellsubmenu"><img src="{BASEWEB}images/misc/transparent.gif" height="5" width="1"></td>
+		</tr>
+		<!-- BEGIN DATA -->
+		<tr> 
+		  <td class="cellsubmenu">&nbsp;</td>
+		  <td class="cellsubmenu" valign=top><b>&nbsp;{POSCOUNTER}.</b></td>
+		  <td class="cellsubmenu" align="center" valign=top>
+			<BR>
+			<table align="center" width="250" border="0" cellpadding="2"  cellspacing="0" class="tr_width_border">
+
+			<!-- BEGIN DETAILDATA -->
+			<tr class="{detail_style}">
+			 <td class="tr_width_border" width="175"><B>{detail_name}:</B></TD>
+			 <td class="tr_width_border" width="75" align=center><B>{detail_value}</B></td>
+			</tr>
+			<!-- END DETAILDATA -->
+
+			</table>
+		  </td>
+		  <td align="center" valign="middle" class="cellsubmenu"> 
+		    <table width="200" height="150" border="0" cellpadding="0" cellspacing="0" class="with_border">
+			<tr> 
+			  <!-- BEGIN mapname2 -->
+			  <td class="cellsubmenu"><img src="{BASEWEB}images/level/{mapname2}.jpg" alt="{mapname2}" width="200" height="150" align="absmiddle"></td>
+			  <!-- END mapname2 -->
+			</tr>
+		    </table>
+		    <BR>
+		  </td>
+		</tr>
+		<!-- END DATA -->
+		</table>
+
+	</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="3" align="center">
+        <!-- INCLUDE footer.html -->
+	</td>
+  </tr>
+</table>

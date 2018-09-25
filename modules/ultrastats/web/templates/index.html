@@ -1,0 +1,127 @@
+<!-- INCLUDE site_header.html --> 
+<!-- INCLUDE menu.html -->
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td width="2%">&nbsp;</td>
+    <td width="96%"><BR>&nbsp;<BR></td>
+    <td width="2%">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td>
+
+		<table border="0" cellspacing="5" cellpadding="0" align="center" width="100%">
+		<tr>
+			<table border="0" cellspacing="0" cellpadding="0" class="table_with_border" align="center" width="400">
+				<tr><td align="center" class="cellmenu1" colspan="3"><B>General Informations</B></td></tr>
+			<!-- BEGIN GENERALINFOS -->
+				<tr><td align="center" class="topmenu_sub" colspan="3"><img src="{BASEWEB}images/misc/transparent.gif" height="1" width="1"></td></tr>
+				<tr>
+					<td class="cellsubmenu" width="20">&nbsp;&nbsp;</td>
+					<td class="cellsubmenu" nowrap align="right" valign="top">{GEN_NAME}: </td>
+					<td class="value" align="center" width="100%"><B>{GEN_VALUE}</B></td>
+				</tr>
+			<!-- END GENERALINFOS -->
+			</table><br><br>
+		<!-- BEGIN RANDOMCHAT -->
+			<BR>
+			<table border="0" class="table_with_border" cellspacing="0" cellpadding="0" width="400">
+				<tr><td colspan="3" align="center" class="cellmenu1"><B>Some Random Chat Quotes ({RANDOMCHAT_COUNT}x) </B> <!--(<a href="{EXTENSION}" class="mylink">More random quotes :]</A>)--> </td></tr>
+				<!-- BEGIN RANDOMCHATLINES -->
+				<tr><td colspan="3" align="center" class="topmenu_sub"><img src="{BASEWEB}images/misc/transparent.gif" height="1" width="1"></td></tr>
+				<tr>
+					<td class="cellsubmenu" width="20">&nbsp;&nbsp;</td>
+					<td class="cellsubmenu" nowrap align="right" valign="top">&nbsp;<a href="player_details{EXTENSION}?ID={MEDAL_PLAYER_ID}" class="mylink">{MEDAL_HTML}</a> says: &nbsp;</td>
+					<td class="value" align="left" width="100%">{CHATLINE}</td>
+				</tr>
+				<!-- END RANDOMCHATLINES -->
+			</table><br><br>
+		<!-- END RANDOMCHAT -->
+			<table border="0" cellspacing="0" cellpadding="0" class="table_with_border" align="center" width="304">
+				<tr><td align="center" class="cellmenu1"><B>{Clannametitle}</B></td></tr>
+				<tr><td align="center" class="topmenu_sub"><img src="{BASEWEB}images/misc/transparent.gif" height="1" width="1"></td></tr>
+				<tr><td class="cellsubmenu" nowrap valign="top" align="left">
+					<img src="{BASEWEB}images/clanlogo.jpg" width="300" height="200">
+				</td></tr>
+				<tr><td class="topmenu_sub" align="center"><img src="{BASEWEB}images/misc/transparent.gif" height="1" width="1"></td></tr>
+				<tr><td class="value" nowrap valign="top" align="center">&nbsp;Last update:&nbsp;<B>{LASTUPDATE}</B></td></tr>
+				<tr><td class="topmenu_sub" align="center"><img src="{BASEWEB}images/misc/transparent.gif" height="1" width="1"></td></tr>
+				<tr><td class="value" nowrap valign="top" align="center">&nbsp;Loglines:&nbsp;<B>{LOGLINES}</B></td></tr>
+			</table><br><br>
+				<table border="0" cellspacing="0" cellpadding="0" class="table_with_border" align="center" width="350">
+				<tr><td align="center" class="cellmenu1" colspan="2"><B>Total Statistics (All time)</B></td></tr>
+				<!-- BEGIN TOTALS -->
+				<tr><td align="center" class="topmenu_sub" colspan="2"><img src="{BASEWEB}images/misc/transparent.gif" height="1" width="1"></td></tr>
+				<tr>
+					<td class="cellsubmenu" nowrap valign="top" align="right">&nbsp;&nbsp;{DISPNAME}:&nbsp;</TD>
+					<td class="value" nowrap valign="top" align="center" width="100%" onMouseOver="total_details.innerHTML = '<B>{DESCRIPTION}</B>';" onMouseOut="total_details.innerHTML = '&nbsp;';">&nbsp;<B>{TOTALVALUE}</B>&nbsp;</td>
+				</tr>
+				<!-- END TOTALS -->
+				<tr><td align="center" class="topmenu_sub" colspan="2"><img src="{BASEWEB}images/misc/transparent.gif" height="1" width="1"></td></tr>
+				<tr><td colspan="2" ID="total_details" align="center">&nbsp;</td></tr>
+				</table>
+		</tr>
+		</table>
+	</td>
+  </tr>
+  <tr> 
+    <td>
+	  <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+	  <tr>
+		<table border="0" cellspacing="0" cellpadding="0" align="center">
+		<tr>
+			<!-- BEGIN MEDALLINKS -->
+			<td class="tr_width_border" align="center"><a href="#{DISPNAME}" class="MyLink">
+				<img src="{BASEWEB}images/medals/thumbs/{FILENAME}.png" style="filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='{BASEWEB}images/medals/thumbs/{FILENAME}.png', sizingMethod='scale')" width="32" height="64" name="{INTNAME}" onMouseOver="medal_details.innerHTML = '<B>{DISPNAME}</B>';" onMouseOut="medal_details.innerHTML = '&nbsp;';" alt="{DISPNAME}" title="{DISPNAME}" border="0">
+				<script>CheckAlphaPNGImage('{INTNAME}', '{BASEWEB}images/misc/transparent.gif');</script>
+			</A></td>
+			<!-- END MEDALLINKS -->
+		</tr>
+		<tr> 
+		<BR><BR><a>Medal QuickLinks</a>
+			<td colspan="{MEDALS_COUNT}" ID="medal_details" align="center" class="tr_width_border">&nbsp;</td>
+		</tr>
+		</table>
+		<BR>
+	  </tr>
+	  <tr>
+	<!-- BEGIN MEDALS -->
+		<td align="center" width="50%">
+		  <table width="300" border="0" cellspacing="0" cellpadding="0" class="table_with_border" align="center">
+			<tr><td colspan="3" align="center" class="cellmenu1"><a name="{DISPNAME}"><B>{DISPNAME}</B></a></td></tr>
+			<tr><td colspan="3" align="center" class="topmenu_sub"><img src="{BASEWEB}images/misc/transparent.gif" height="1" width="1"></td></tr>
+			<tr> 
+			  <td width="150" class="cellsubmenu" nowrap valign="top" align=center>
+				<BR><BR><B>{DISPNAME}: &nbsp;{MEDALVALUE}&nbsp;</B>
+				<BR><a href="player_details{EXTENSION}?ID={MEDAL_PLAYER_ID}" title="view details of - {MEDAL_NAME}" class="mylink">{MEDAL_HTML}</a>
+				<BR><BR>
+				{DESCRIPTION}
+			  </td>
+			  <td width="100%" class="cellsubmenu" align="center">
+				<img src="{BASEWEB}images/medals/{INTNAME}.png" style="filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='{BASEWEB}images/medals/{INTNAME}.png', sizingMethod='scale')" width="128" height="256" name="{INTNAME}">
+				<script>CheckAlphaPNGImage('{INTNAME}', '{BASEWEB}images/misc/transparent.gif');</script>
+			  </td>
+			</tr>
+			<tr> 
+			  <td class="cellsubmenu" nowrap>&nbsp;</td>
+			  <td class="cellsubmenu">&nbsp;</td>
+			</tr>
+		  </table>
+		  <BR>
+		</td>
+		{MEDAL_ROW_END}
+	<!-- END MEDALS -->
+	  </table>
+	</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td colspan="3" class="line1" align="center"><!-- INCLUDE footer.html --></td>
+  </tr>
+</table>

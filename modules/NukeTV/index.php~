@@ -1,0 +1,505 @@
+<?php 
+// ----------------------------------------------------------------------
+// Internet TV 
+// Copyright (C) 2002 by eduangi telecom Team.
+// http://www.eduangi.com/
+// ----------------------------------------------------------------------
+// Based on:
+// PHP-NUKE Web Portal System - http://phpnuke.org/
+// ----------------------------------------------------------------------
+// LICENSE
+//
+// This program is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License (GPL)
+// as published by the Free Software Foundation; either version 2
+// of the License, or (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// To read the license please visit http://www.gnu.org/copyleft/gpl.html
+// ----------------------------------------------------------------------
+
+$ModName = basename( dirname( __FILE__ ) );
+if(!IsSet($mainfile)) { include ("mainfile.php"); }
+
+if (isset($newlang)) {
+        include("modules/$ModName/language/lang-$newlang.php");
+        $language = $newlang;
+} elseif (isset($lang)) {
+        include("modules/$ModName/language/lang-$lang.php");
+        $language = $lang;
+} else {
+        include("modules/$ModName/language/lang-$language.php");
+}
+			    
+
+
+if (!eregi("modules.php", $PHP_SELF)) {
+        die ("You can't access this file directly...");
+    }
+
+/* Internet TV 
+Credits to Eduardo Collado -- http://www.eduangi.com/  */
+
+$ModName = basename( dirname( __FILE__ ) ); 
+
+/*
+Now all we have to do is change the module name in the links through-out the script to $ModName
+and you should be able to change than name of the directory to whatever you want, and the links will change with it.
+This is done for our non-english speaking friends, and idiots like me that just change the name of things to
+be "original"
+*/
+
+    include ('header.php');
+
+
+OpenTable();
+echo "
+<div align=\"center\"><b><br>
+</b>
+<div align=\"left\">
+<table cellpadding=\"2\" cellspacing=\"2\" border=\"0\" width=\"100%\">
+  <tbody>
+    <tr>
+      <td valign=\"top\"><h1>"._ITV."</h1><br>
+      "._LISTA1."<b><font color=\"#FF0000\"> "._LISTA2."
+      </font></b>
+      </td>
+      <td valign=\"middle\" align=\"center\"><b>"._ITV."</b><br>
+      <img src=\"/modules/$ModName/images/tv.jpg\" alt=\""._ITV."\"
+width=\"118\"  height=\"81\">
+      <br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<b><br>
+  Canales<br>
+</b>
+<table cellpadding=\"2\" cellspacing=\"2\" border=\"0\" width=\"100%\"
+height=\"877\">
+  <tbody>
+    <tr>
+      <td valign=\"top\" align=\"center\" height=\"19\"><b>"._IDIOMA."<br>
+      </b>
+      </td>
+      <td valign=\"top\" align=\"center\"
+height=\"19\"><b>"._PAIS."<br>
+      </b>
+      </td>
+      <td valign=\"top\" align=\"center\" height=\"19\"><b>"._CANAL."<br>
+      </b>
+      </td>
+      <td valign=\"top\" align=\"center\"
+height=\"19\"><b>"._REPRODUCTOR."<br>
+      </b>
+      </td>
+    </tr>
+    <tr>
+      <td valign=\"top\" align=\"center\" height=\"31\">"._ESP."<br>
+      </td>
+      <td valign=\"top\" align=\"center\"
+height=\"31\">"._ES."<br>
+      </td>
+      <td valign=\"top\" align=\"center\" height=\"31\"><a href=\"/modules.php?name=$ModName&amp;file=bloomberg\">Bloomberg
+"._ES."</a></td>
+      <td valign=\"top\" align=\"center\" height=\"31\"><img
+src=\"/modules/$ModName/images/wmp.gif\"
+ alt=\""._WMP."\" width=\"75\" height=\"25\">
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign=\"top\" align=\"center\"
+height=\"31\">"._ESP."<br>
+      </td>
+      <td valign=\"top\" align=\"center\" height=\"31\">"._ES."<br>
+      </td>
+      <td valign=\"top\" align=\"center\" height=\"31\">
+      <a href=\"/modules.php?name=$ModName&amp;file=antena3\">
+Antena 3</a><br>
+      </td>
+      <td valign=\"top\" align=\"center\" height=\"31\"><img
+src=\"/modules/$ModName/images/wmp.gif\"
+ alt=\""._WMP."\" width=\"75\" height=\"25\">
+      <br>
+      </td>
+    </tr>
+    <tr>
+       <td valign=\"top\" align=\"center\" height=\"31\">"._GAL."<br>   
+       </td>
+      <td valign=\"top\" align=\"center\"
+height=\"31\">"._ES."<br>
+      </td>
+      <td valign=\"top\" align=\"center\" height=\"31\"><a href=\"/modules.php?name=$ModName&amp;file=tvg\">Televisi&oacute;n
+de Galicia</a><br>
+      </td>
+      <td valign=\"top\" align=\"center\" height=\"31\"><img
+src=\"/modules/$ModName/images/wmp.gif\"
+ alt=\""._WMP."\" width=\"75\" height=\"25\">
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign=\"top\" align=\"center\"
+height=\"31\">"._ESP."<br>
+      </td>
+      <td valign=\"top\" align=\"center\"
+height=\"31\">"._ES."<br>
+      </td>
+      <td valign=\"top\" align=\"center\" height=\"31\">
+      <a href=\"/modules.php?name=$ModName&amp;file=expansion\">Expansión TV</a><br>
+      </td>
+      <td valign=\"top\" align=\"center\" height=\"31\"><img
+src=\"/modules/$ModName/images/rp.gif\"
+ alt=\""._RP."\" width=\"75\" height=\"25\">
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign=\"top\" align=\"center\"
+height=\"31\">"._ESP."<br>
+      </td>
+      <td valign=\"top\" align=\"center\"
+height=\"31\">"._MEX."<br>
+      </td>
+      <td valign=\"top\" align=\"center\" height=\"31\">
+      <a href=\"/modules.php?name=$ModName&amp;file=cni\">CNI en
+L&iacute;nea</a><br>
+      </td>
+      <td valign=\"top\" align=\"center\" height=\"31\"><img
+src=\"/modules/$ModName/images/wmp.gif\"
+ alt=\""._WMP."\" width=\"75\" height=\"25\">
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign=\"top\" align=\"center\"
+height=\"31\">"._CAT."<br>
+      </td>
+      <td valign=\"top\" align=\"center\" height=\"31\">"._AND."<br>
+      </td>
+      <td valign=\"top\" align=\"center\" height=\"31\">
+      <a href=\"/modules.php?name=$ModName&amp;file=rtva\">Televisi&oacute;
+d'Andorra</a><br>
+      </td>
+      <td valign=\"top\" align=\"center\" height=\"31\"><img
+src=\"/modules/$ModName/images/rp.gif\"
+ alt=\""._RP."\" width=\"75\" height=\"25\">
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign=\"top\" align=\"center\"
+height=\"19\">"._ESP."</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">"._ES." - Castilla y
+León</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">
+    <a target=\"_blank\"
+href=\"http://www.tvcyl.es/cablemodem.htm\">Televisión de Castilla y
+León</a></td>
+    <td width=\"34%\" height=\"19\" align=\"center\"><img
+src=\"/modules/$ModName/images/wmp.gif\"
+ alt=\""._WMP."\" width=\"75\" height=\"25\"></td>
+    </tr>
+    <tr>
+      <td valign=\"top\" align=\"center\"
+height=\"19\">"._ESP."</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">"._ES." -
+Andalucia</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">
+    <a href=\"/modules.php?name=$ModName&amp;file=csur\">C
+anal Sur</a></td>
+    <td width=\"34%\" height=\"19\" align=\"center\"><img
+src=\"/modules/$ModName/images/rp.gif\"
+ alt=\""._RP."\" width=\"75\" height=\"25\"></td>
+    </tr>
+    <tr>
+      <td valign=\"top\" align=\"center\" height=\"19\">"._ESP." /
+"._EUSK."</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">"._ES." - País
+Vasco</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">
+    <a href=\"/modules.php?name=$ModName&amp;file=etb1\">Euskal
+Telebista via satélite 56k</a></td>
+    <td width=\"34%\" height=\"19\" align=\"center\"><img
+src=\"/modules/$ModName/images/wmp.gif\"
+ alt=\""._WMP."\" width=\"75\" height=\"25\"></td>
+    </tr>
+    <tr>
+      <td valign=\"top\" align=\"center\" height=\"19\">"._ESP." /
+"._EUSK."</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">"._ES." - País
+Vasco</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">
+    <a href=\"/modules.php?name=$ModName&amp;file=etb1\">Euskal
+Telebista via satélite 28k</a></td>
+    <td width=\"34%\" height=\"19\" align=\"center\"><img
+src=\"/modules/$ModName/images/wmp.gif\"
+ alt=\""._WMP."\" width=\"75\" height=\"25\"></td>
+    </tr>
+    <tr>
+      <td valign=\"top\" align=\"center\" height=\"19\">"._ESP." /
+"._EUSK."</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">"._ES." - País
+Vasco</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">
+    <a href=\"/modules.php?name=$ModName&amp;file=etb3\">Euskal
+Telebista via satélite 28k</a></td>
+    <td width=\"34%\" height=\"19\" align=\"center\"><img
+src=\"/modules/$ModName/images/rp.gif\"
+ alt=\""._RP."\" width=\"75\" height=\"25\"></td>
+    </tr>
+    <tr>
+      <td valign=\"top\" align=\"center\"
+height=\"19\">"._ESP."</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">"._ES." -
+Galicia</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">
+    <a target=\"_blank\"
+href=\"http://www.crtvg.es/reals/gal_tv.ram\">Televisión de
+Galicia</a></td>
+    <td width=\"34%\" height=\"19\" align=\"center\"><img
+src=\"/modules/$ModName/images/rp.gif\"
+ alt=\""._RP."\" width=\"75\" height=\"25\"></td>
+    </tr>
+    <tr>
+      <td valign=\"top\" align=\"center\"
+height=\"19\">"._ESP."</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">"._ES." -
+Galicia</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">
+    <a target=\"_blank\"
+href=\"http://www.crtvg.es/asfroot/television.asx\">Televisión de
+Galicia</a></td>
+    <td width=\"34%\" height=\"19\" align=\"center\"><img
+src=\"/modules/$ModName/images/wmp.gif\"
+ alt=\""._WMP."\" width=\"75\" height=\"25\"></td>
+    </tr>
+    <tr>
+      <td valign=\"top\" align=\"center\"
+height=\"19\">"._ESP."</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">"._ES."</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">
+    <a target=\"_blank\"
+href=\"http://www.latelelatina.com/\">Telelatina</a></td>
+    <td width=\"34%\" height=\"19\" align=\"center\">Quick Time</td>
+    </tr>
+    <tr>
+      <td valign=\"top\" align=\"center\"
+height=\"19\">"._ESP."</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">"._CU."</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">
+    <a target=\"_blank\"
+href=\"http://www.comfm.com/php/tv/live.php?id=12073\">Televisión Cubana
+6</a></td>
+    <td width=\"34%\" height=\"19\" align=\"center\"><img
+src=\"/modules/$ModName/images/wmp.gif\"
+ alt=\""._WMP."\" width=\"75\" height=\"25\"></td>
+    </tr>
+    <tr>
+      <td valign=\"top\" align=\"center\"
+height=\"19\">"._ESP."</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">República
+Dominicana</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">
+    <a target=\"_blank\"
+href=\"mms://insabroadcast.tv/cibaosupertv\">SuperTV55</a></td>
+    <td width=\"34%\" height=\"19\" align=\"center\"><img
+src=\"/modules/$ModName/images/wmp.gif\"
+ alt=\""._WMP."\" width=\"75\" height=\"25\"></td>
+    </tr>
+    <tr>
+      <td valign=\"top\" align=\"center\"
+height=\"19\">"._ESP."</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">"._DOM."</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">
+    <a target=\"_blank\"
+href=\"mms://insabroadcast.tv/canal25\">Telemedios Dominicana Canal
+25</a></td>
+    <td width=\"34%\" height=\"19\" align=\"center\"><img
+src=\"/modules/$ModName/images/wmp.gif\"
+ alt=\""._WMP."\" width=\"75\" height=\"25\"></td>
+    </tr>
+    <tr>
+      <td valign=\"top\" align=\"center\"
+height=\"1\">"._ESP."</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">"._PAN."</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">
+    <a target=\"_blank\"
+href=\"http://www.tvn-2.com/videos/vivo.asx\">TVN</a></td>
+    <td width=\"34%\" height=\"1\" align=\"center\"><img
+src=\"/modules/$ModName/images/wmp.gif\"
+ alt=\""._WMP."\" width=\"75\" height=\"25\"></td>
+    </tr>
+    <tr>
+      <td valign=\"top\" align=\"center\"
+height=\"19\">"._ESP."</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">"._PTOR."</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">
+    <a target=\"_blank\"
+href=\"http://www.televicentropr.com/stream.php\">Televicentro</a></td>
+    <td width=\"34%\" height=\"19\" align=\"center\"><img
+src=\"/modules/$ModName/images/wmp.gif\"
+ alt=\""._WMP."\" width=\"75\" height=\"25\"></td>
+    </tr>
+    <tr>
+      <td valign=\"top\" align=\"center\"
+height=\"19\">"._ESP."</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">"._ARG."</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">
+    <a target=\"_blank\"
+href=\"http://mediaserver.sinectis.com.ar:8080/news/UOLnews.asx\">CVN
+Noticias</a></td>
+    <td width=\"34%\" height=\"19\" align=\"center\"><img
+src=\"/modules/$ModName/images/wmp.gif\"
+ alt=\""._WMP."\" width=\"75\" height=\"25\"></td>
+    </tr>
+    <tr>
+      <td valign=\"top\" align=\"center\"
+height=\"19\">"._ESP."</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">"._ARG."</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">
+    <a target=\"_blank\" href=\"http://www.tn.com.ar/tnvivo.asx\">TN 24
+Todo Noticias</a></td>
+    <td width=\"34%\" height=\"19\" align=\"center\"><img
+src=\"/modules/$ModName/images/wmp.gif\"
+ alt=\""._WMP."\" width=\"75\" height=\"25\"></td>
+    </tr>
+    <tr>
+      <td valign=\"top\" align=\"center\"
+height=\"19\">"._ESP."</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">"._CHI."</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">
+<a href=\"/modules.php?name=$ModName&amp;file=canal13\">Can
+al 13</a></td>
+    <td width=\"34%\" height=\"19\" align=\"center\"><img
+src=\"/modules/$ModName/images/wmp.gif\"
+ alt=\""._WMP."\" width=\"75\" height=\"25\"><br>
+&nbsp;<img  src=\"/modules/$ModName/images/rp.gif\"
+ alt=\""._RP."\" width=\"75\" height=\"25\"></td>
+    </tr>
+    <tr>
+      <td valign=\"top\" align=\"center\"
+height=\"19\">"._ESP."</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">"._CHI."</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">
+    <a target=\"_blank\"
+href=\"http://www.chilevision.cl/scripts/chv/template.asp\">Chilevisión</a></td>
+    <td width=\"34%\" height=\"19\" align=\"center\"><img
+src=\"/modules/$ModName/images/wmp.gif\"
+ alt=\""._WMP."\" width=\"75\" height=\"25\"></td>
+    </tr>
+    <tr>
+      <td valign=\"top\" align=\"center\"
+height=\"19\">"._ESP."</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">"._CHI."</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">
+    <a target=\"_blank\"
+href=\"http://www.tvn.cl/sev/index.asp\">TVN</a></td>
+    <td width=\"34%\" height=\"19\" align=\"center\"><img
+src=\"/modules/$ModName/images/wmp.gif\"
+ alt=\""._WMP."\" width=\"75\" height=\"25\"></td>
+    </tr>
+    <tr>
+      <td valign=\"top\" align=\"center\"
+height=\"19\">"._ESP."</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">"._ECU."</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">
+    <a target=\"_blank\"
+href=\"http://www.ecuadormedia.com/html/tv/gamavision/programacion.html\">Gamavisión</a></td>
+    <td width=\"34%\" height=\"19\" align=\"center\"><img
+src=\"/modules/$ModName/images/rp.gif\"
+ alt=\""._RP."\" width=\"75\" height=\"25\"></td>
+    </tr>
+    <tr>
+      <td valign=\"top\" align=\"center\"
+height=\"19\">"._ESP."</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">"._PER."</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">
+    <a target=\"_blank\"
+href=\"http://www.americatv.com.pe/station1.asx\">América TV</a></td>
+    <td width=\"34%\" height=\"19\" align=\"center\"><img
+src=\"/modules/$ModName/images/wmp.gif\"
+ alt=\""._WMP."\" width=\"75\" height=\"25\"></td>
+    </tr>
+    <tr>
+      <td valign=\"top\" align=\"center\"
+height=\"19\">"._ESP."</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">"._VEN."</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">
+    <a target=\"_blank\"
+href=\"mms://66.28.147.49/Globovision\">Globovisión</a></td>
+    <td width=\"34%\" height=\"19\" align=\"center\"><img
+src=\"/modules/$ModName/images/wmp.gif\"
+ alt=\""._WMP."\" width=\"75\" height=\"25\"></td>
+    </tr>
+    <tr>
+      <td valign=\"top\" align=\"center\"
+height=\"19\">"._ESP."</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">"._VEN."</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">
+    <a target=\"_blank\" href=\"mms://66.28.147.49/rctv\">Radio Caracas
+Televisión</a></td>
+    <td width=\"34%\" height=\"19\" align=\"center\"><img
+src=\"/modules/$ModName/images/wmp.gif\"
+ alt=\""._WMP."\" width=\"75\" height=\"25\"></td>
+    </tr>
+    <tr>
+      <td valign=\"top\" align=\"center\" height=\"19\">"._PORT."</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">"._BR."</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">
+    <a target=\"_blank\" href=\"http://www.alltv.com.br/\">All
+TV</a></td>
+    <td width=\"34%\" height=\"19\" align=\"center\"><img
+src=\"/modules/$ModName/images/wmp.gif\"
+ alt=\""._WMP."\" width=\"75\" height=\"25\"></td>
+    </tr>
+    <tr>
+      <td valign=\"top\" align=\"center\" height=\"19\">"._PORT."</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">"._BR."</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">
+    <a target=\"_blank\"
+href=\"http://amazonsat.portalamazonia.globo.com/amazonsat.asx\">Amazon
+Sat</a></td>
+    <td width=\"34%\" height=\"19\" align=\"center\"><img
+src=\"/modules/$ModName/images/wmp.gif\"
+ alt=\""._WMP."\" width=\"75\" height=\"25\"></td>
+    </tr>
+    <tr>
+      <td valign=\"top\" align=\"center\" height=\"19\">"._PORT."</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">"._BR."</td>
+    <td width=\"33%\" height=\"19\" align=\"center\">
+    <a target=\"_blank\"
+href=\"http://200.222.82.210:8080/ramgen/encoder/amazonsat.rm\">Amazon
+Sat</a></td>
+    <td width=\"34%\" height=\"19\" align=\"center\"><img
+src=\"/modules/$ModName/images/rp.gif\"
+ alt=\""._RP."\" width=\"75\" height=\"25\"></td>
+    </tr>
+  </tbody>
+</table>
+<p>
+
+"._ITV." "._POR." <a href=\"http://www.eduangi.com\" target=\"_blank\"><img src=\"/modules/$ModName/images/module.gif\"></a>
+</div>
+
+
+";
+
+CloseTable();
+
+
+    include ('footer.php');
+
+
+?>
+?>
+
+
+
+

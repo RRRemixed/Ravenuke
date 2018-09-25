@@ -1,0 +1,48 @@
+<!-- 
+
+XML Configuration Settings (Make a backup BEFORE editing below!!)
+
+rotator isRandom if you want your images to display randonmly set to true 
+bannerTime is the ammount of seconds the banner will show for 
+numberOfBanners is the ammount you want to show in total 
+banners showHeader is to show the text overlay on-top off the image
+
+-->
+
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rotator isRandom="false">
+  <bannerTime>5</bannerTime>
+  <numberOfBanners>5</numberOfBanners>
+  <banners showHeader="true">
+    <banner>
+      <name>Wrath of the Lich King</name>
+      <body>Blizzard Entertainment</body>
+      <imagePath>Movie1.swf</imagePath>
+      <link>http://www.blizzard.com</link>
+    </banner>
+    <banner>
+      <name>Making Clans Look Good</name>
+      <body>Blizzard Entertainment</body>
+      <imagePath>02.jpg</imagePath>
+      <link>http://www.clanthemes.com</link>
+    </banner>
+    <banner>
+      <name>Thanks for your purchase</name>
+      <body>Blizzard Entertainment</body>
+      <imagePath>03.jpg</imagePath>
+      <link>http://www.clanthemes.com</link>
+    </banner>
+    <banner>
+      <name>Please use the provided support forums</name>
+      <body>Blizzard Entertainment</body>
+      <imagePath>04.jpg</imagePath>
+      <link>http://www.clanthemes.com</link>
+    </banner>
+    <banner>
+      <name>And enjoy your theme !</name>
+      <body>Blizzard Entertainment</body>
+      <imagePath>05.jpg</imagePath>
+      <link>http://www.clanthemes.com</link>
+    </banner>
+  </banners>
+</rotator>

@@ -1,0 +1,128 @@
+<!-- INCLUDE site_header.html --> 
+<!-- INCLUDE menu.html -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="454">
+  <tr>
+		<table border="0" cellspacing="0" cellpadding="2" class="table_with_border" align="center" height="235" width="75%">
+		<tr>
+			<br><br><td class="cellmenu1" height="19" width="100%">
+            <p align="center">
+            <a name="{DISPNAME}"><B>{DISPNAME}</B></a></td>
+		</tr>
+		<tr><td class="cellsubmenu" height="19" width="100%">
+          <BR></td></tr>
+		<tr>
+			<td width="100%" class="cellsubmenu" nowrap valign="top" height="162">
+			<p align="center">
+			<B>Description  and info</B>
+			<BR>
+			</p>
+
+<!-- IF WEAP_HAS_DETAIL="true" -->
+			<table width="300" border="0" cellspacing="0" cellpadding="0" class="table_with_border" align="center">
+				<center>
+                <tr>
+                  <td colspan="3" class="cellsubmenu" height="20" width="288">
+                  <p align="center">{WP_DESCRIPTION}</p></td>
+                </tr>
+                <tr>
+                  <td colspan="3" class="topmenu_sub" width="288"><img src="{BASEWEB}images/misc/transparent.gif" height="1" width="1"></td>
+                </tr>
+                <tr>
+                  <td colspan="3" class="topmenu" height="20" width="288">
+                  <p align="center"><B>{DISPNAME} details</B></td></tr>
+				<tr>
+                  <td colspan="3" class="topmenu_sub" width="288"><img src="{BASEWEB}images/misc/transparent.gif" height="1" width="1"></td></tr>
+
+				<tr class="cellmenu1"> 
+				<td width="8" class="cellmenu1">&nbsp;</td>
+				<td width="156" class="cellmenu1"><strong>&nbsp;Detail</strong> </td>
+				<td width="124" class="cellmenu1"><strong>&nbsp;Value</strong></td>
+				</tr>
+				<tr>
+                  <td colspan="3" class="topmenu_sub" width="288"><img src="{BASEWEB}images/misc/transparent.gif" height="1" width="1"></td></tr>
+				<!-- BEGIN DATA_WPDET -->
+				<tr class="line{ODDROW}"> 
+				<td class="tr_width_border" width="8">&nbsp;</td>
+				<td class="tr_width_border" width="156">&nbsp;&nbsp;<B>{DETAILNAME}</B></td>
+				<td class="tr_width_border" width="124">&nbsp;{DETAILVALUE}</td>
+				</tr></center>
+				<!-- END DATA_WPDET -->
+			</table>
+<!-- ENDIF WEAP_HAS_DETAIL="true" -->
+
+			</td>
+		</tr>
+		<tr> 
+			<td class="cellsubmenu" height="19" width="100%">
+			<p align="center">
+			<img src="{BASEWEB}images/weapons/{WEAPON_IMG}.jpg" class="table_with_border"></td>
+		</tr>
+		</table>
+		<table align="center" width="90%" border="0" cellpadding="0"  cellspacing="0">
+		<tr>
+			<td>
+
+			<table align="left" border="0" cellpadding="0"  cellspacing="0">
+			<tr>
+				<td nowrap><B>Pages: &nbsp; </B></td>
+			<!-- BEGIN PAGESKILLS -->
+				<td nowrap><a target="_self" href="?mod={ORDER}&beginkills={BEGINPAGE}" class="mylink">{PAGENUMBER}</a><BR></td>
+			<!-- END PAGESKILLS -->
+				<td nowrap><I>&nbsp;{MORESTRING}</I></td><BR>
+				<td nowrap width="100%" align="right">Total <B>Kills</B>: {TOTALKILLS}&nbsp;<BR>(<B>{PLAYERCOUNT_KILLS}</B> used it)&nbsp;</td>
+			</tr>
+			</table>
+			
+			</td>
+		</tr>
+		<tr> 
+		  <td><img src="{BASEWEB}images/misc/transparent.gif" height="5" width="1"></td>
+		</tr>
+		</table>
+
+		<table width="90%" align="center" border="0" cellspacing="0" cellpadding="0" class="table_with_border">
+		<tr>
+		  <td>
+		  <table width="100%" border="0" cellpadding="0"  cellspacing="0" align="center">
+			<tr class="cellmenu1"><td colspan="4" align=center><B></B></td></tr>
+			<tr> 
+			  <td width="20" class="cellmenu1" height="20" nowrap>&nbsp;#</td>
+			  <td width="100%" class="cellmenu1"><b>&nbsp;Name</b></td>
+			  <td width="40" class="cellmenu1" align="right" nowrap>
+              <p align="center"><b>Kills</b></td> 
+			  <td width="75" class="cellmenu1" align="left" nowrap>
+              <p align="center"><b>Ratio of total kills</b></td>
+			</tr>
+			<tr> 
+			  <td colspan="4" class="topmenu_sub"><img src="{BASEWEB}images/misc/transparent.gif" height="1" width="1"></td>
+			</tr>
+			<!-- BEGIN DATA -->
+			<tr class="line{ODDROW}"> 
+			  <td class="tr_width_border">&nbsp;{POSCOUNTER}.&nbsp; 
+				<!-- BEGIN MEDAL -->
+				<img src="{BASEWEB}images/misc/{MEDAL}" align="absmiddle"> 
+				<!-- END MEDAL -->
+			  </td>
+			  <td class="tr_width_border" nowrap>&nbsp;<a href="player_details{EXTENSION}?ID={PLAYER_ID}" title="view details of - {NAME}" class="mylink">{NAME_HTML}</a></td>
+			  <td class="tr_width_border" align="right">{Kills}</td>
+			  <td class="tr_width_border" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="{BASEWEB}images/misc/{STYLESHEET}/main.gif" width="{IMG_WIDTH}" height="6">&nbsp;{RATIO}&nbsp;%</td>
+			</tr>
+			<!-- END DATA -->
+		  </table>
+		  </td>
+		</tr>
+		</table>
+	
+  <td height="398">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td height="19">&nbsp;</td>
+    <td height="19"><div align="center"> </div></td>
+    <td height="19">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="3" align="center" height="1">
+        <!-- INCLUDE footer.html -->
+    </td>
+  </tr>
+</table>

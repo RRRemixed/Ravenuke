@@ -1,0 +1,99 @@
+<!-- INCLUDE site_header.html --> 
+<!-- INCLUDE menu.html -->
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td>
+		<table align="center" width="100%" border="0" cellpadding="0"  cellspacing="0">
+		<tr>
+			<td>
+
+			<table align="left" border="0" cellpadding="0" cellspacing="0">
+			<BR><tr>
+				<td nowrap><B>&nbsp;Pages: &nbsp; </B></td>
+			<!-- BEGIN PAGES -->
+				<td nowrap><a target=_self href="?order={ORDER}&begin={BEGINPAGE}" class="mylink">{PAGENUMBER}</a><BR></td>
+			<!-- END PAGES -->
+				<td nowrap><I>&nbsp;{MORESTRING}</I></td><BR>
+				<td nowrap width="100%" align="right"><B>{PLAYERCOUNT}</B> Players listed&nbsp;<BR>(With Minimum Playtime: <B>{MINIMUM_PLAYING_TIME}</B> sec&nbsp;<br>and minimum kills: <B>{MINKILLS}</B>)&nbsp;</td>
+			</tr>
+			</table>
+			
+			</td>
+		</tr>
+		<tr> 
+		  <td><img src="{BASEWEB}images/misc/transparent.gif" height="5" width="1"></td>
+		</tr>
+		</table>
+
+		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table_with_border">
+        <tr> 
+          <td align="center"> 
+              <table width="100%" border="0" cellpadding="0"  cellspacing="0">
+                <tr> 
+                  <td width="30" nowrap class="cellmenu1">&nbsp;</td>
+                  <td width="MAX" nowrap align="left" class="cellmenu1"><B class="mylink2">Name</B></td>
+                  <td width="30" nowrap align="center" class="cellmenu1" align="right"><B><a class="mylink2" href="?order=Kills">Kill</A></B></td>
+                  <td width="30" nowrap align="center" class="cellmenu1" align="right"><B><a class="mylink2" href="?order=Deaths">Death</A></B></td>
+                  <td width="20" nowrap align="center" class="cellmenu1" align="right"><B><a class="mylink2" href="?order=Suicide">oops!</A></B></td>
+                  <td width="30" nowrap align="center" class="cellmenu1" align="right"><B><a class="mylink2" href="?order=Skill">Skill</A></B></td>
+                  <td width="20" nowrap align="center" class="cellmenu1" align="right"><B><a class="mylink2" href="?order=team_kills">Tm Kill</A></B></td>
+				  <!-- BEGIN GT_FLAGCAPT -->
+				  <td width="30" nowrap align="center" class="cellmenu1" align="right"><B><a class="mylink2" href="?order=Flags_capt">Flag Cap</A></B></td>
+				  <!-- END GT_FLAGCAPT -->
+				  <!-- BEGIN GT_FLAGKILL -->
+                  <td width="30" align="center" class="cellmenu1" align="right"><B><a class="mylink2" href="?order=Flags_killed">Flag Def</A></B></td>
+				  <!-- END GT_FLAGKILL -->
+				  <!-- BEGIN GT_BRIEFCAPT -->
+                  <td width="30" nowrap align="center" class="cellmenu1" align="right"><B><a class="mylink2" href="?order=Briefcases">Brfcs Caps</A></B></td>
+				  <!-- END GT_BRIEFCAPT -->
+				  <!-- BEGIN GT_BRIEFKILL -->
+                  <td width="30" align="center" class="cellmenu1" align="right"><B><a class="mylink2" href="?order=Briefcases_killed">Brfcs Defs</A></B></td>
+				  <!-- END GT_BRIEFKILL -->
+                  <td width="30" align="center"class="cellmenu1" align="left"><B><a class="mylink2" href="?order=Time">Time played</A></B></td>
+                </tr>
+                <tr> 
+                  <td colspan="15" class="topmenu_sub"><img src="{BASEWEB}images/misc/transparent.gif" height="1" width="1"></td>
+                </tr>
+                <!-- BEGIN DATA -->
+                <tr class="line{ODDROW}"> 
+                  <td class="tr_width_border">&nbsp;{POSCOUNTER}.&nbsp; 
+                    <!-- BEGIN MEDAL -->
+                    <img src="{BASEWEB}images/misc/{MEDAL}" align="middle"> 
+                    <!-- END MEDAL -->
+                  </td>
+                  <td class="tr_width_border">&nbsp;<a href="player_details{EXTENSION}?ID={ID}" title="view details of - {NAME}" class="mylink">{NAME_HTML}</a></td>
+                  <td class="tr_width_border" align="right">{Kills}</td>
+                  <td class="tr_width_border" align="right">{Deaths}</td>
+                  <td class="tr_width_border" align="right">{Suicides}</td>
+                  <td class="tr_width_border" align="right">{Skill}</td>
+                  <td class="tr_width_border" align="right">{team_kills}</td>
+				  <!-- BEGIN GT_FLAGCAPT -->
+                  <td class="tr_width_border" align="right">{Flags_capt}</td>
+				  <!-- END GT_FLAGCAPT -->
+				  <!-- BEGIN GT_FLAGKILL -->
+                  <td class="tr_width_border" align="right">{Flags_killed}&nbsp;</td>
+				  <!-- END GT_FLAGKILL -->
+				  <!-- BEGIN GT_BRIEFCAPT -->
+                  <td class="tr_width_border" align="right">{Briefcases}</td>
+				  <!-- END GT_BRIEFCAPT -->
+				  <!-- BEGIN GT_BRIEFKILL -->
+                  <td class="tr_width_border" align="right">{Briefcases_killed}</td>
+				  <!-- END GT_BRIEFKILL -->
+                  <td class="tr_width_border" align="left">{NEWTIME}</td>
+                </tr>
+                <!-- END DATA -->
+              </table>
+            </td>
+        </tr>
+      </table></td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td class="line1"> <div align="center"> 
+        <!-- INCLUDE footer.html -->
+      </div></td>
+  </tr>
+</table>

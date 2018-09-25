@@ -1,0 +1,7 @@
+<div id="motioncontainer" style="position:relative;overflow:hidden;">
+<div id="motiongallery" style="position:absolute;left:0;top:0;white-space: nowrap;">
+
+<nobr id="trueContainer"><a href="javascript:enlargeimage('dynamicbook1.gif')"><img src="dynamicbook1.gif" border=1></a> <a href="javascript:enlargeimage('dynamicbook1.gif', 300, 300)"><img src="dynamicbook1.gif" border=1></a> <a href="http://www.dynamicdrive.com"><img src="dynamicbook1.gif" border=1></a> <a href="#"><img src="dynamicbook1.gif" border=1></a> <a href="#"><img src="dynamicbook1.gif" border=1></a> <a href="#"><img src="dynamicbook1.gif" border=1></a> <a href="#"><img src="dynamicbook1.gif" border=1></a> <a href="#"><img src="dynamicbook1.gif" border=1></a> <a href="#"><img src="dynamicbook1.gif" border=1></a></nobr>
+
+</div>
+</div>

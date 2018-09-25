@@ -1,0 +1,11 @@
+<link rel="stylesheet" href="gallerystyle2.css" />
+
+<script type="text/javascript" src="motiongallery2.js">
+
+/***********************************************
+* CMotion Image Gallery II- © Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* Visit http://www.dynamicDrive.com for source code
+* Modified by jscheuer1 for vertical orientation, at http://www.dynamicDrive.com/forums
+***********************************************/
+
+</script>

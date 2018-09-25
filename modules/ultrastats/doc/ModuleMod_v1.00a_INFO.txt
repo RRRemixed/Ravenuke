@@ -1,0 +1,217 @@
+/************************************************************************/
+/* UNOFFICIAL UltraStats Module v1.0 for phpNuke (tested on v7.2 ONLY!)	*/
+/* ====================================================================	*/
+/* by RevBubba - http://fragoholics.net  http://fragoholicshosting.net	*/
+/* UltraStats by DeltaRay and Zak - HitLogging skeleton by {VOD}CJ{FUI}	*/
+/* MOD DEMO - http://www.fragoholics.net/modules.php?name=ultrastats1	*/
+/* DISTRIBUTION: v1.00a 09/07/04 - !N!T!AL RELEASE (*iframe version*)	*/
+/************************************************************************/
+
+---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+------------------------
+WHAT THE HELL IS THIS?!?
+------------------------
+
+Hi.  Some of you already know me from the many SoF2 Admin forums out there, I lurk at pretty much
+all of them...  Anyhoo, I had a site crash recently & lost my entire custom html site.  Ugh.  So,
+I started over using phpNuke - only to find a COMPLETE lack of UltraStats Modules out there...
+and after attempting this, I CAN SEE WHY!  hehehe  Well, I set to the task and have come up with
+this.
+
+I had 1 main requirement in mind when I set out: IT HAD TO BE FULLY 800x600 COMPLIANT, WITHIN THE 
+NUKE SITE, WITH NO HORIZONTAL SCROLLBARS!  This proved to be the MOST time-consuming aspect of 
+the project to accomplish, as I had a VERY LIMITED amount of space to work with - and I had to 
+edit just about all of the original .html templates to succeed, as well as many weapon images - 
+and the BIGGEST part of the project BY FAR was the need to separate the "HitLocations Map" to a 
+POPUP window in order to make the "Player Detail" pages fit.  The ONLY lost content is the
+"Efficency Ratio" column on the far-right of the "Players" pages...  it just added too much width 
+to the content.  HOWEVER - the "Effeciency Ratio" IS STILL CALCULATED, and it is still shown
+everywhere else it was shown before.
+
+You can check out the module in action at:
+       http://www.fragoholics.net/modules.php?name=ultrastats1
+ -or-  http://www.fragoholics.net/modules.php?name=ultrastats2
+ -or-  http://www.fragoholics.net/modules.php?name=ultrastats3
+ -or-  http://www.fragoholics.net/modules.php?name=ultrastats4
+
+Note that this is an IFRAME-BASED module - this was specifically for those of you who have a site
+which is a bandwidth-hog.  The advantage to the iframe method: upon clicking on a link within the
+module, ONLY THE CONTENTS OF THE MODULE HAS TO RELOAD!  Your site's main framework remains idle
+throughout the Module's navigation process.  Maybe someday I will also develop a NON-IFRAME-BASED
+module - the only advantage I can see to that would be the elimination of the vertical scrollbar
+within the module.
+
+If I can find the time, I will release updates as I make 'em, and bug fixes as you report 'em.
+Note that I will only respond to bugfix requests relating to code altered by me and included in
+this package - for bug reports & fixes in the core UltraStats code, see the official UltraStats
+forums at: http://www.eifelzocker.de/index.php?name=PNphpBB2&file=viewforum&f=16
+
+-RevBubba
+September 07, 2004
+
+---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+   |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+   VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
+   IMPORTANT - READ THE ENTIRE CONTENTS OF THIS DOCUMENT BEFORE YOU ATTEMPT TO INSTALL THIS MOD!
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+-----------------
+PREINSTALL NOTES:
+-----------------
+
+NOTE 1: If you have installed UltraStats to ANY location OTHER THAN the "../modules/ultrastats/" 
+        directory on your webserver (i.e. "www.yoursite.com/ultrastats/" etc.) you will have to
+        move your UltraStats installation directory to your nuke rootdir's "../modules/" folder.
+        This mod was NOT designed for use in ANY other installation path.  Sorry, perhaps in a
+        future release I will be able to take the time to make this work...  in the meantime,
+        if any of you feel the need to make this scenario work with what is here, inform me of
+        your attempt and I will be glad to help find the flaws and fixes, given I have the time.
+
+NOTE 2: I have already decided to rework this module's structure, so it will "piggyback" on a
+        separate installation of UltraStats, to run independantly and simultaneously with each 
+        other.  The v2.0 of this mod will be in this form, if it ever comes to pass.  SO - the
+        next FULL version release of this mod WILL BE DESIGNED to work with any filepath for the 
+        main UltraStats installation, not just an installation in the "modules" folder.
+
+NOTE 3: I have discovered an issue lately, which comes up when you have LOTS AND LOTS of Gameserver
+        activity, and you generate more than 20 pages of "Players" or "weapons" pages - the "page
+        number linkbar" will actually break the 800x600 compliance for those pages.  My fix for
+        this issue is to edit my "config_web.php" file, specifically the 
+        $CFG['MAX_PAGES_COUNT'] = "xx" line - set "xx" to 20 - IT WILL FIT THE 800x600 AT THAT
+        SETTING.  If this reduces your overall listed players to an unacceptable level - you could
+        always edit $CFG['LIMIT1'] (Limit of players shown on main statistic page ) and/or
+        $CFG['LIMIT2'] (Limit of players shown on weapon statistic page) to compensate.
+
+---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------
+INSTALLATION INSTRUCTIONS FOR EXISTING ULTRASTATS INSTALLATION:
+---------------------------------------------------------------
+
+1.  If you have not done so already, configure and install UltraStats to your webserver in the
+    following directory: "(Your phpNuke root directory)/modules/ultrastats/"
+    PLEASE CONFIRM THE STANDALONE INSTALLATION WORKS COMPLETELY, THEN BACKUP YOUR ENTIRE
+    INSTALLATION (INCLUDING THE DATABASE) BEFORE CONTINUING TO INSTALL THIS MOD!  After
+    succesful backup completion, extract the 'UltraStats_Mod_Mod_v1_0.zip' archive you downloaded
+    to a convenient location.
+
+2.  Open "ultrastats/index.php" (using notepad or wordpad) from the 'UltraStats_Mod_Mod_v1_0.zip'
+    archive you downloaded and extracted. (BE SURE YOU EXTRACTED KEEPING THE FOLDER STRUCTURE 
+    INTACT!!!)
+
+3.  On line 20, EDIT "YOUR SERVER NAME HERE" with your server name.  On the same line, and on
+    the next line (21), edit the font colors (hex value) to match your site's theme, if you
+    wish.
+
+4.  If you used a foldername OTHER than "ultrastats" for your installation, you MUST modify the
+    2 filepaths contained in lines 22 & 23 of "ultrastats/index.php" to reflect your 
+    modified foldername.
+
+4.  If you have MORE THAN ONE INSTALLATION OF ULTRASTATS on your webserver 
+    (i.e. "www.yoursite.com/modules/ultrastats1/", "www.yoursite.com/modules/ultrastats2/",
+    etc.), you must edit the 2 filepaths contained in lines 22 & 23 of EACH INSTALLATION'S
+    "ultrastats/index.php" to reflect its modified filepath(s) 
+    (i.e. "modules/ultrastats1/web/content/index.php", 
+    "modules/ultrastats2/web/content/index.php",etc.).
+
+5.  Now, simply save and close "index.php" and upload it, along with ALL other files included 
+    in this archive, to your website's "../modules/ultrastats" folder, KEEPING THE FOLDER 
+    STRUCTURE INTACT; then activate the module from your phpNuke website's Admin Panel.
+    PRESTO - you have an UltraStats Module!
+
+---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+CHANGED/NEW FILES (all included in this package, with folder structure intact):
+-------------------------------------------------------------------------------
+
+ contained in ../ultrastats/ -
+  added "index.php"
+ contained in ../ultrastats/doc/
+  added "ModuleMod_v1.00a_INFO.txt" (a copy of this text file for future reference)
+ contained in ../ultrastats/web/content/ -
+  added "hitlocations.php"
+  EDITED "players.php"
+  EDITED "player_details.php"
+  EDITED "weapon.php"
+ contained in ../ultrastats/web/templates/ -
+  added "hitlocations.html"
+  EDITED "index.html"
+  EDITED "menu.html"
+  EDITED "footer.html"
+  EDITED "player_details.html"
+  EDITED "players.html"
+  EDITED "server.html"
+  EDITED "server-actions.html"
+  EDITED "server-live-dm.html"
+  EDITED "server-live-team.html"
+  EDITED "server-live-off.html"
+  EDITED "server-maps.html"
+  EDITED "weapon.html"
+ contained in ../ultrastats/web/images/weapons/ -
+  EDITED 18 images, including ALL Primary Weapons, Shottie, Greasegun, ROC & ICS Weapons.
+  ADDED 1 image, "MOD_STRIKE.jpg" - for fix of broken image on ROC Admin Strike page. (Just
+    a renamed copy of "MOD_TARGET_LASER.jpg" image used for OSP Admin Strike page)
+   FILE LIST: see the ../ultrastats/web/images/weapons/ directory in this archive.
+   All image edits mentioned above were RESIZING, to make the module fully 800x600 compliant.
+*contained in ../ultrastats/web/images/medals/ -
+  EDITED 21 images, including ALL Full-Sized Medal Images.
+   FILE LIST: see the ../ultrastats/web/images/medals/ directory in this archive.
+   All image edits mentioned above were done months ago, to make the awards page load faster.
+   Feel free to omit these images from use at your site if you prefer the original files.
+*contained in ../ultrastats/web/images/medals/thumbs/ -
+  EDITED 14 images, including ALL Thumbnail-Sized Medal Images.
+   FILE LIST: see the ../ultrastats/web/images/medals/thumbs/ directory in this archive.
+   All image edits mentioned above were done months ago, to make the awards page load faster.
+   Feel free to omit these images from use at your site if you prefer the original files.
+
+* = optional component
+
+---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+------------------------------------------
+OTHER KNOWN & RECOMMENDED phpNuke GOODIES:
+------------------------------------------
+
+UltraStats Related:
+- "The BRuTuS TOP10 Block" - a "Top 10 Players, by Kills" sideblock, based on UltraStats.  Fully
+  compliant with this Module.
+     info & download - http://new.eifelzocker.de/index.php?name=PNphpBB2&file=viewtopic&t=1193
+- "Mini-Stats" by [GrkGdz]Guy - a "Live Server Status" SIDEBLOCK!, based on the Live Server Status
+  component of UltraStats.  SHOULD be fully compatible with this Module.
+     info & download - http://new.eifelzocker.de/index.php?name=PNphpBB2&file=viewtopic&t=1211
+
+Non-UltraStats Related:
+- The "Login-Site-Tracker Block V2" by Logen - an enhanced Login/Admin/Who's Online & Where/PM/Hit
+  Counter block, which also displays the logged-in user's avatar.  HIDES THE ADMIN LOGIN FROM ALL
+  EXCEPT LOGGED-IN USERS WHO ARE ADMINS!  As this block REPLACES all of the blocks mentioned above,
+  INCLUDING THE ADMIN LOGIN BLOCK, you will no longer have public OR non-admin members even seeing
+  that tempting "Admin Login" block!  *** THIS BLOCK IS A REAL WINNER.  Could be the most useful,
+  practical, and space-saving block in existence. ***
+     info & download - http://smurftech.com/modules.php?name=Downloads&d_op=viewdownload&cid=2
+
+---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+----------------
+VERSION HISTORY:
+----------------
+v1.00a: September 07, 2004 - Initial release.
+
+---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+
+/************************************************************************/
+/* UNOFFICIAL UltraStats Module v1.0 for phpNuke (tested on v7.2 ONLY!)	*/
+/* ====================================================================	*/
+/* by RevBubba - http://fragoholics.net  http://fragoholicshosting.net	*/
+/* UltraStats by DeltaRay and Zak - HitLogging skeleton by {VOD}CJ{FUI}	*/
+/* MOD DEMO - http://www.fragoholics.net/modules.php?name=ultrastats1	*/
+/* DISTRIBUTION: v1.00a 09/07/04 - !N!T!AL RELEASE (*iframe version*)	*/
+/************************************************************************/
+
+/EOF
+/Stop reading already!
