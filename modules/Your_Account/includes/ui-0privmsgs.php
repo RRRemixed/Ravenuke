@@ -78,19 +78,19 @@ if (is_active('Private_Messages') && defined('LOGGEDIN_SAME_USER')) {
 	}
 	echo '<div align="center"><strong>' . _YAMESSAGES . '</strong>';
 	echo '<table border="0"><tr>';
-	echo '<td><a href="modules.php?name=Private_Messages"><img src="' . $imagedir . '/whosonline.gif" alt="" /></a></td>';
+	echo '<td><a href="modules.php?name=Private_Messages"><img src="' . $imagedir . '/msg_receivebox.gif" alt="" /></a></td>';
 	echo '<td valign="middle"><a href="modules.php?name=Private_Messages"><strong>' . _YAPM . '&nbsp;: &nbsp;' . $ya_totpms . '</strong></a></td>';
 	echo '<td width="10%">&nbsp;</td>';
 	echo '<td><a href="modules.php?name=Private_Messages"><img src="' . $imagedir . '/msg_inbox.gif" alt="" /></a></td>';
 	echo '<td valign="middle"><a href="modules.php?name=Private_Messages"><strong>&nbsp; ' . _YAUNREAD . ':&nbsp;' . $ya_newpms . '</strong></a></td>';
 	echo '<td width="10%">&nbsp;</td>';
-	echo '<td><a href="modules.php?name=Private_Messages"><img src="' . $imagedir . '/msg_inbox.gif" alt="" /></a></td>';
+	echo '<td><a href="modules.php?name=Private_Messages"><img src="' . $imagedir . '/msg_outbox.gif" alt="" /></a></td>';
 	echo '<td valign="middle"><a href="modules.php?name=Private_Messages"><strong>&nbsp; ' . _YAREAD . ':&nbsp;' . $ya_oldpms . '</strong></a></td>';
 	echo '<td width="10%">&nbsp;</td>';
 	echo '<td><a href="modules.php?name=Private_Messages&amp;file=index&amp;folder=savebox"><img src="' . $imagedir . '/msg_savebox.gif" alt="" /></a></td>';
 	echo '<td valign="middle"><a href="modules.php?name=Private_Messages&amp;file=index&amp;folder=savebox"><strong>&nbsp; ' . _YASAVED . ':&nbsp;' . $ya_savpms . '</strong></a></td>';
 	echo '<td width="10%">&nbsp;</td>';
-	echo '<td><a href="modules.php?name=Private_Messages&amp;file=index&amp;folder=outbox"><img src="' . $imagedir . '/msg_inbox.gif" alt="" /></a></td>';
+	echo '<td><a href="modules.php?name=Private_Messages&amp;file=index&amp;folder=outbox"><img src="' . $imagedir . '/msg_sentbox.gif" alt="" /></a></td>';
 	echo '<td valign="middle"><a href="modules.php?name=Private_Messages&amp;file=index&amp;folder=outbox"><strong>&nbsp; ' . _YAOUTBOX . ':&nbsp;' . $ya_outpms . '</strong></a></td></tr>';
 	echo '</table>';
 	echo '<form action="modules.php?name=Private_Messages&amp;mode=post&amp;pm_uname=' . htmlspecialchars($username) . '" method="post">';

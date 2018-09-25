@@ -5,7 +5,7 @@ $protect_string = $_GET['protect_string'];
 $bgcolor = $_GET['bgcolor'];
 $tcolor = $_GET['tcolor'];
 function string_split($str, $nr){   
-   return split("-l-", chunk_split($str, $nr, '-l-'));
+   return preg_split("-l-", chunk_split($str, $nr, '-l-'));
 }
 $hexcolor1 = string_split($bgcolor, 2);
 $hexcolor2 = string_split($tcolor, 2);

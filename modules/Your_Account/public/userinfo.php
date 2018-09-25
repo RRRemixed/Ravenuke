@@ -193,7 +193,7 @@ if ($num == 1) {
 			echo '<tr><td width="30%" align="left">' . _EXTRAINFO . '</td><td width="70%" align="left"><strong>' . $usrinfo['bio'] . '</strong></td></tr>' ;
 		}
 		if ($ya_config['usepoints'] >= '1' AND ((is_user($user) AND defined('LOGGEDIN_SAME_USER')) OR is_admin($admin))) {
-			echo '<tr><td width="30%" align="left">' . _YA_POINTS . '</td><td width="70%" align="left"><strong>' . $usrinfo['points'] . '</strong></td></tr>' ;
+			echo '<tr><td width="30%" align="left">' . _YA_POINTS . '</td><td width="70%" align="left"><strong>' . $usrinfo['user_points'] . '</strong></td></tr>' ;
 		}
 		/*
 		 * Continue with additional extra fields

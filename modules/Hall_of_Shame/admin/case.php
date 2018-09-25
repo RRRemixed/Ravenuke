@@ -11,8 +11,6 @@
 /* By Troy Moore - http://mrc.clanservers.com        	*/
 /********************************************************/
 
-
-
 if ( !defined('ADMIN_FILE') ) {
 	("Illegal Admin File Access");
 }
