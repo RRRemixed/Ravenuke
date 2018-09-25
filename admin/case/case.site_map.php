@@ -9,7 +9,7 @@
 /*                                                                      */
 /************************************************************************/
 
-if ( !defined('ADMIN_FILE') )
+if (!defined('ADMIN_FILE'))
 {
 	die ("Access Denied");
 }
@@ -18,12 +18,12 @@ $aid = substr("$aid", 0,25);
 $row = $db->sql_fetchrow($db->sql_query("SELECT radminsuper FROM " . $prefix . "_authors WHERE aid='$aid'"));
 if ($row['radminsuper'] == 1) {
 
-switch ($op) {
-	case 'site_map':
-        include('admin/modules/site_map.php');
-    break;
+    switch ($op) {
+	    case 'site_map':
+            include('admin/modules/site_map.php');
+        break;
 
-}
+    }
 }
 
 ?>

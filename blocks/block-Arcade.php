@@ -62,7 +62,7 @@ $content .= "<font color=\"#666666\"><b>"._TOPGAMERS."</b><br>";
 $content .= "<br>";
 
 $sql = "SELECT COUNT(*) AS nbvictoires, g.game_highuser, u.user_id, u.username, user_color_gc, u.user_level FROM ".$prefix."_bbgames g, ".$user_prefix."_users u WHERE g.game_highuser = u.user_id AND g.game_highuser <> 0 GROUP BY g.game_highuser ORDER BY nbvictoires DESC";
-if(!($result = $db->sql_query($sql)))
+if (!($result = $db->sql_query($sql)))
 {
 		die("Could not query games information");
 }

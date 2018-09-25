@@ -12,6 +12,7 @@
 /* the Free Software Foundation; either version 2 of the License.       */
 /************************************************************************/
 //(c) Jonathan Pilborough 2005 Part of superiplog
+
 if (!defined('ADMIN_FILE')) {
 	die ("Access Denied");
 }

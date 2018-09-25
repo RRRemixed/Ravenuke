@@ -1,4 +1,5 @@
 <?php
+
 /************************************************************************/
 /* PHP-NUKE: Web Portal System                                          */
 /* ===========================                                          */
@@ -11,11 +12,25 @@
 /* the Free Software Foundation; either version 2 of the License.       */
 /************************************************************************/
 
-if (!defined('ADMIN_FILE')) {
-	die('Access Denied');
+/////3.1 yada 3.2 yamasý varsa aþaðýdan /* ve */ yazan yerleri ve   "if (!eregi("".$admin_file.".php", $_SERVER['PHP_SELF'])) { die ("Access Denied"); }   "  yazan yeri silin.
+
+/*
+if (!defined('ADMIN_FILE'))
+{
+    die ("Access Denied");
 }
+*/
+
 global $admin_file;
-if ($radminsuper == 1) {
-	adminmenu($admin_file . '.php?op=Configure', _PREFERENCES, 'preferences.gif');
+if (!eregi("".$admin_file.".php", $_SERVER['PHP_SELF'])) { die ("Access Denied"); }
+
+switch($op) {
+
+    case "activate":
+    case "activate_go":
+    include("admin/modules/activate.php");
+    break;
+
 }
+
 ?>

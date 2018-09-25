@@ -25,7 +25,7 @@
 
 if (!eregi("admin.php", $_SERVER['PHP_SELF'])) { die ("Access Denied"); }
 
-switch($op) {
+switch ($op) {
 
     case "Support":
     include ("admin/modules/support.php");

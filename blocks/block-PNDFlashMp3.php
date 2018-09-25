@@ -1,5 +1,6 @@
 <?php
-if ( !defined('BLOCK_FILE') ) {
+
+if (!defined('BLOCK_FILE')) {
     Header("Location: ../index.php");
     die();
 }

@@ -1,4 +1,5 @@
 <?php
+
 if (eregi("block-Announcement.php",$_SERVER['PHP_SELF'])) {
     Header("Location: index.php");
     die();
@@ -21,9 +22,7 @@ $announcement4 = "$space Even Number 4...";
 $announcement5 = "$space Far Too Many Now But Here Is The 5th";
 //$announcement6 = "commented out for display purposes only";
 
-
 //User settings end
-
 
 // do not alter the code below unless you know what you are doing
 $content .= "<div align=\"center\">";

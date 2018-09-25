@@ -8,8 +8,8 @@
 /********************************************************/
 
 global $admin_file;
-if(!isset($admin_file)) { $admin_file = 'admin'; }
-if(!defined('ADMIN_FILE')) { header("Location: ../../".$admin_file.".php"); }
+if (!isset($admin_file)) {$admin_file = 'admin';}
+if (!defined('ADMIN_FILE')) {header("Location: ../../".$admin_file.".php");}
 switch($op) {
     case 'ABAuth':
     case 'ABAuthEdit':

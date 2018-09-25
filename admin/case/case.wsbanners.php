@@ -12,7 +12,7 @@
 
 if (!eregi("admin.php", $_SERVER['PHP_SELF'])) { die ("Access Denied"); }
 
-switch($op) {
+switch ($op) {
     case "ws_banneradmin":
 	case "ws_bannerplans":
 	case "ws_addbannerplan":

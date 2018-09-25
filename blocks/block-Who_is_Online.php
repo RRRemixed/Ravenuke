@@ -1,5 +1,4 @@
 <?php
-
 ########################################################################
 # PHP-Nuke Block: Total Hits v0.1                                      #
 #                                                                      #
@@ -19,7 +18,7 @@
 /* XHTML compliance fixes by Raven and Montego.                         */
 /************************************************************************/
 
-if ( !defined('BLOCK_FILE') ) {
+if (!defined('BLOCK_FILE')) {
 	Header('Location: ../index.php');
 	die();
 }
@@ -28,7 +27,7 @@ global $user, $cookie, $prefix, $db, $user_prefix;
 
 cookiedecode($user);
 if (isset($_SERVER['REMOTE_ADDR'])) { $ip = $_SERVER['REMOTE_ADDR']; }
-if(!validIP($ip)) $ip = ''; //RN0000993 + tightened it up with new validIP() function in mainfile.php
+if (!validIP($ip)) $ip = ''; //RN0000993 + tightened it up with new validIP() function in mainfile.php
 if (is_user($user))
 {
 	$uname = $cookie[1];
@@ -71,7 +70,7 @@ if (is_user($user)) {
 
 $sql2 = 'SELECT title FROM '.$prefix.'_blocks WHERE bkey=\'online\'';
 $query2 = $db->sql_query($sql2);
-list($title) = $db->sql_fetchrow($query2);
+list ($title) = $db->sql_fetchrow($query2);
 if (is_user($user)) {
 	$content .= '<br />'._YOUARELOGGED.' <b>'.$uname.'</b>.<br />';
 	if (is_active('Private_Messages')) {

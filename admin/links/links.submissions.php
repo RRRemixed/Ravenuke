@@ -10,6 +10,7 @@
 /* it under the terms of the GNU General Public License as published by */
 /* the Free Software Foundation; either version 2 of the License.       */
 /************************************************************************/
+
 if (!defined('ADMIN_FILE')) {
 	die('Access Denied');
 }

@@ -1,5 +1,4 @@
 <?php
-
 ###################################################
 ###	PND Content & News Block v1.0			###
 ###	Coded By Astalavista-BD				###

@@ -9,7 +9,7 @@
 /* the Free Software Foundation; either version 2 of the License.       */
 /************************************************************************/
 
-if ( !defined('BLOCK_FILE') ) {
+if (!defined('BLOCK_FILE')) {
     Header("Location: ../index.php");
 }
 $block_module = 'Feeds';
@@ -28,7 +28,7 @@ $content = '';
 	  $lastcontentname = '';
     foreach ($feeds as $blockFid => $feed)
     {
-      if ( $fid>0 and $name == $block_module and $type == 'HTML' and nf_CONVERTENCODING and function_exists('mb_convert_encoding') )
+      if ($fid>0 and $name == $block_module and $type == 'HTML' and nf_CONVERTENCODING and function_exists('mb_convert_encoding'))
       {
         $feed['title'] = mb_convert_encoding($feed['title'], 'UTF-8');
         $feed['name'] = mb_convert_encoding($feed['name'], 'UTF-8');

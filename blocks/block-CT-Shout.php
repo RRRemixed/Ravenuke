@@ -5,6 +5,7 @@
 /* http://www.clanthemes.com                                */
 /* Copyright © 2009 by Clan Themes                          */
 /************************************************************/
+
 if (eregi("block-CT-Shout.php",$PHP_SELF)) {
     Header("Location: index.php");
     die();

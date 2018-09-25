@@ -8,10 +8,10 @@
 ###	All Rights Reserved.						###
 ###												###
 ###################################################
-include("mainfile.php");
-global $prefix, $db, $nukeurl;
-header("Content-Type: text/xml");
 
+include ("mainfile.php");
+global $prefix, $db, $nukeurl;
+header ("Content-Type: text/xml");
 
 $result = $db->sql_query("SELECT lid, title, hits FROM ".$prefix."_downloads_downloads ORDER BY hits DESC LIMIT 0,10");
 
@@ -27,7 +27,6 @@ echo "<link>$nukeurl</link>\n";
 echo "<description>".htmlspecialchars($btitle)."</description>\n";
 echo "<language>$backend_language</language>\n\n";
 
-
 while ($row = $db->sql_fetchrow($result)) {
  	$title2 = ereg_replace("_"," ", $row['title']);
     $transfertitle = str_replace(" ", "_", $row[title]);
@@ -37,9 +36,7 @@ while ($row = $db->sql_fetchrow($result)) {
     echo "</item>\n\n";
 }
 
-
 echo "</channel>\n";
 echo "</rss>";
-
 
 ?>

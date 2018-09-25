@@ -1,5 +1,4 @@
 <?php
-
 /************************************************************************/
 /* PHP-NUKE: Web Portal System                                          */
 /* ===========================                                          */
@@ -20,7 +19,7 @@
 /* XHTML compliance fixes by Raven and Montego.                         */
 /************************************************************************/
 
-if ( !defined('BLOCK_FILE') ) {
+if (!defined('BLOCK_FILE')) {
 	Header('Location: ../index.php');
 	die();
 }

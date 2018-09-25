@@ -1,5 +1,4 @@
 <?php
-
 ######################################################################
 #
 #	Support - A PHP-Nuke module for customers to use to receive 

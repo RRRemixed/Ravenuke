@@ -16,7 +16,7 @@
 global $admin_file;
 if (!eregi("".$admin_file.".php", $_SERVER['SCRIPT_NAME'])) { die ("Access Denied"); }
 
-switch($op) {
+switch ($op) {
     case "video_stream":
     include("admin/modules/video_stream.php");
     break;

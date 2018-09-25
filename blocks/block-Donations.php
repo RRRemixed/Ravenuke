@@ -5,6 +5,7 @@
 /* http://codezwiz.com/                                 */
 /* Copyright © 2000-2003 by Codezwiz                    */
 /********************************************************/
+
 if (eregi("block-Donations.php",$_SERVER['SCRIPT_NAME'])) {
     	Header("Location: ../../");
     	exit;

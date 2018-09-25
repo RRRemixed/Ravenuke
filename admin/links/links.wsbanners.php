@@ -1,5 +1,4 @@
 <?php
-
 /****************************************************************/
 /*                  COPYRIGHT NOTICE!                           */
 /*This script is designed by Western Studios and is copyrighted */
@@ -9,6 +8,7 @@
 /****************************************************************/
 /*           ..::Subscription Module::..                        */
 /****************************************************************/
+
 if (!eregi("admin.php", $_SERVER['PHP_SELF'])) { die ("Access Denied"); }
 adminmenu("admin.php?op=ws_banneradmin", "WS Banners", "wsads.gif");
 

@@ -12,7 +12,7 @@
 /* the Free Software Foundation; either version 2 of the License.       */
 /************************************************************************/
 
-if ( !defined('ADMIN_FILE') )
+if (!defined('ADMIN_FILE'))
 {
 	die ("Access Denied");
 }

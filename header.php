@@ -115,4 +115,13 @@ if (defined('HOME_FILE')) {
 	message_box();
 	blocks('Center');
 }
+
+//---------------------------------------------------------------------
+//  CODING PROVIDED BY DreAdeDcoRpSE - http://www.headshotdomain.net/
+//  CODING IS USED FOR THE CLAN MANAGER MODULE.
+//  USEAGE: THIS IS FOR THE AUTO STATUS MOD
+//---------------------------------------------------------------------
+if(is_user($user) && $cookie[0] <> 0)
+    $db->sql_query("UPDATE `".$prefix."_clanmanager_members` SET `lastseen` = '".time()."' WHERE `uid` = '".intval($cookie[0])."'");
+//---------------------------------------------------------------------
 ?>

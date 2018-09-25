@@ -16,7 +16,7 @@ if (!defined('ADMIN_FILE')) {
 	die ("Access Denied");
 }
 
-switch($op) {
+switch ($op) {
 
     case "superiplog":
     case "accesslog":
