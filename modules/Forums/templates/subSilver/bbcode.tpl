@@ -121,3 +121,12 @@
 <!-- BEGIN url --><a href="{URL}" target="_blank" class="postlink">{DESCRIPTION}</a><!-- END url -->
 
 <!-- BEGIN email --><a href="mailto:{EMAIL}">{EMAIL}</a><!-- END email -->
+
+<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width={WIDTH} height={HEIGHT}>
+<param name=movie value={URL}>
+<param name=quality value="best">
+<param name=menu value=false>
+<param name=wmode value=transparent>
+<embed src="{URL}" quality=best wmode=transparent width={WIDTH} height={HEIGHT} type="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash">
+</embed>
+</object>

@@ -43,7 +43,7 @@ include_once("modules/Forums/mycalendar_mod/mycalendar_functions.php");
 //
 // Check and set various parameters
 //
-$params = array('submit' => 'post', 'preview' => 'preview', 'delete' => 'delete', 'poll_delete' => 'poll_delete', 'poll_add' => 'add_poll_option', 'poll_edit' => 'edit_poll_option', 'mode' => 'mode', 'popup' => 'popup');
+$params = array('submit' => 'post', 'preview' => 'preview', 'delete' => 'delete', 'poll_delete' => 'poll_delete', 'poll_add' => 'add_poll_option', 'poll_edit' => 'edit_poll_option', 'mode' => 'mode');
 while( list($var, $param) = @each($params) )
 {
    if ( !empty($HTTP_POST_VARS[$param]) || !empty($HTTP_GET_VARS[$param]) )
@@ -78,7 +78,7 @@ $orig_word = $replacement_word = array();
 // Set topic type
 //
 $topic_type = ( !empty($HTTP_POST_VARS['topictype']) ) ? intval($HTTP_POST_VARS['topictype']) : POST_NORMAL;
-$topic_type = ( in_array($topic_type, array(POST_NORMAL, POST_STICKY, POST_ANNOUNCE)) ) ? $topic_type : POST_NORMAL;
+$topic_type = ( in_array($topic_type, array(POST_NORMAL, POST_STICKY, POST_ANNOUNCE, POST_GLOBAL_ANNOUNCE)) ) ? $topic_type : POST_NORMAL;
 
 //
 // If the mode is set to topic review then output
@@ -151,40 +151,44 @@ if ( isset($HTTP_POST_VARS['cancel']) )
 $is_auth = array();
 switch( $mode )
 {
-   case 'newtopic':
-      if ( $topic_type == POST_ANNOUNCE )
-      {
-         $is_auth_type = 'auth_announce';
-      }
-      else if ( $topic_type == POST_STICKY )
-      {
-         $is_auth_type = 'auth_sticky';
-      }
-      else
-      {
-         $is_auth_type = 'auth_post';
-      }
-      break;
-   case 'reply':
-   case 'quote':
-      $is_auth_type = 'auth_reply';
-      break;
-   case 'editpost':
-      $is_auth_type = 'auth_edit';
-      break;
-   case 'delete':
-   case 'poll_delete':
-      $is_auth_type = 'auth_delete';
-      break;
-   case 'vote':
-      $is_auth_type = 'auth_vote';
-      break;
-   case 'topicreview':
-      $is_auth_type = 'auth_read';
-      break;
-   default:
-      message_die(GENERAL_MESSAGE, $lang['No_post_mode']);
-      break;
+    case 'newtopic':
+        if ($topic_type == POST_GLOBAL_ANNOUNCE) 
+        {
+            $is_auth_type = 'auth_globalannounce'; 
+        }
+        else if ( $topic_type == POST_ANNOUNCE )
+        {
+            $is_auth_type = 'auth_announce';
+        }
+        else if ( $topic_type == POST_STICKY )
+        {
+            $is_auth_type = 'auth_sticky';
+        }
+        else
+        {
+            $is_auth_type = 'auth_post';
+        }
+        break;
+    case 'reply':
+    case 'quote':
+        $is_auth_type = 'auth_reply';
+        break;
+    case 'editpost':
+        $is_auth_type = 'auth_edit';
+        break;
+    case 'delete':
+    case 'poll_delete':
+        $is_auth_type = 'auth_delete';
+        break;
+    case 'vote':
+        $is_auth_type = 'auth_vote';
+        break;
+    case 'topicreview':
+        $is_auth_type = 'auth_read';
+        break;
+    default:
+        message_die(GENERAL_MESSAGE, $lang['No_post_mode']);
+        break;
 }
 
 //
@@ -228,7 +232,7 @@ switch ( $mode )
          message_die(GENERAL_MESSAGE, $lang['No_post_id']);
       }
 	  
-      $select_sql = (!$submit) ? ', t.topic_title, p.enable_bbcode, p.enable_html, p.enable_smilies, p.enable_sig, p.post_username, pt.post_subject, pt.post_text, pt.bbcode_uid, u.username, u.user_id, u.user_sig, u.user_sig_bbcode_uid' : '';
+	  $select_sql = (!$submit) ? ', t.topic_title, p.enable_bbcode, p.enable_html, p.enable_smilies, p.enable_sig, p.post_username, pt.post_subject, pt.post_text, pt.bbcode_uid, u.username, u.user_id, u.user_sig, u.user_sig_bbcode_uid' : '';
       $from_sql = ( !$submit ) ? ", " . POSTS_TEXT_TABLE . " pt, " . USERS_TABLE . " u" : '';
       $where_sql = ( !$submit ) ? "AND pt.post_id = p.post_id AND u.user_id = p.poster_id" : '';
 
@@ -588,11 +592,10 @@ else if ( $submit || $confirm )
 
                         if ( $error_msg == '' )
                         {
-                                $topic_type = ( $topic_type != $post_data['topic_type'] && !$is_auth['auth_sticky'] && !$is_auth['auth_announce'] ) ? $post_data['topic_type'] : $topic_type;
-
-
-                                submit_post($mode, $post_data, $return_message, $return_meta, $forum_id, $topic_id, $post_id, $poll_id, $topic_type, $bbcode_on, $html_on, $smilies_on, $attach_sig, $bbcode_uid, str_replace("\'", "''", $username), str_replace("\'", "''", $subject), str_replace("\'", "''", $message), str_replace("\'", "''", $poll_title), $poll_options, $poll_length);
-                        }
+                                $topic_type = ( $topic_type != $post_data['topic_type'] && !$is_auth['auth_sticky'] && !$is_auth['auth_announce'] && !$is_auth['auth_globalannounce']) ? $post_data['topic_type'] : $topic_type;
+								
+								submit_post($mode, $post_data, $return_message, $return_meta, $forum_id, $topic_id, $post_id, $poll_id, $topic_type, $bbcode_on, $html_on, $smilies_on, $attach_sig, $bbcode_uid, str_replace("\'", "''", $username), str_replace("\'", "''", $subject), str_replace("\'", "''", $message), str_replace("\'", "''", $poll_title), $poll_options, $poll_length);
+						}
                         break;
 
                 case 'delete':
@@ -967,7 +970,16 @@ if ( $mode == 'newtopic' || ( $mode == 'editpost' && $post_data['first_post'] ) 
       }
       $topic_type_toggle .= ' /> ' . $lang['Post_Announcement'] . '&nbsp;&nbsp;';
    }
-
+if( $is_auth['auth_globalannounce'] ) 
+{ 
+   $topic_type_toggle .= '<input type="radio" name="topictype" value="' . POST_GLOBAL_ANNOUNCE . '"'; 
+   if ( $post_data['topic_type'] == POST_GLOBAL_ANNOUNCE ) 
+   { 
+      $topic_type_toggle .= ' checked="checked"'; 
+   } 
+   $topic_type_toggle .= ' /> ' . $lang['Post_global_announcement'] . '&nbsp;&nbsp;'; 
+} 
+   
    if ( $topic_type_toggle != '' )
    {
       $topic_type_toggle = $lang['Post_topic_as'] . ': <input type="radio" name="topictype" value="' . POST_NORMAL .'"' . ( ( $post_data['topic_type'] == POST_NORMAL || $topic_type == POST_NORMAL ) ? ' checked="checked"' : '' ) . ' /> ' . $lang['Post_Normal'] . '&nbsp;&nbsp;' . $topic_type_toggle;
@@ -1063,6 +1075,7 @@ $template->assign_vars(array(
    'L_BBCODE_A_HELP' => $lang['bbcode_a_help'],
    'L_BBCODE_S_HELP' => $lang['bbcode_s_help'],
    'L_BBCODE_F_HELP' => $lang['bbcode_f_help'],
+   'L_BBCODE_R_HELP' => $lang['bbcode_r_help'],
    'L_EMPTY_MESSAGE' => $lang['Empty_message'],
 
    'L_FONT_COLOR' => $lang['Font_color'],

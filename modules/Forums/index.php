@@ -46,6 +46,20 @@ init_userprefs($userdata);
 // End session management
 //
 
+if( $userdata['session_logged_in'] ) 
+{ 
+	$sql = "SELECT COUNT(post_id) as total 
+		FROM " . POSTS_TABLE . " 
+		WHERE post_time >= " . $userdata['user_lastvisit'] . " 
+		AND poster_id != " . $userdata['user_id']; 
+
+	$result = $db->sql_query($sql); 
+	if( $result ) 
+	{ 
+		$row = $db->sql_fetchrow($result); 
+		$lang['Search_new'] = $lang['Search_new'] . " (" . $row['total'] . ")"; 
+	}
+}
 
 $viewcat = ( !empty($HTTP_GET_VARS[POST_CAT_URL]) ) ? $HTTP_GET_VARS[POST_CAT_URL] : -1;
 
@@ -125,6 +139,7 @@ else
 //
 $sql = "SELECT c.cat_id, c.cat_title, c.cat_order
         FROM " . CATEGORIES_TABLE . " c
+		".(($userdata['user_level']!=ADMIN)? "WHERE c.cat_title<>\"global_announcement\"" :"" )."
         ORDER BY c.cat_order";
 if( !($result = $db->sql_query($sql)) )
 {

@@ -22,12 +22,12 @@
 
 define('IN_PHPBB', 1);
 
-if( !empty($setmodules) )
+if(!empty($setmodules))
 {
-        $filename = basename(__FILE__);
-        $module['Users']['Manage'] = $filename;
+    $filename = basename(__FILE__);
+    $module['Users']['Manage'] = $filename;
 
-        return;
+    return;
 }
 
 $phpbb_root_path = './../';
@@ -44,14 +44,14 @@ $html_entities_replace = array('&lt;', '&gt;');
 //
 // Set mode
 //
-if( isset( $HTTP_POST_VARS['mode'] ) || isset( $HTTP_GET_VARS['mode'] ) )
+if(isset($HTTP_POST_VARS['mode']) || isset($HTTP_GET_VARS['mode']))
 {
-        $mode = ( isset( $HTTP_POST_VARS['mode']) ) ? $HTTP_POST_VARS['mode'] : $HTTP_GET_VARS['mode'];
-        $mode = htmlspecialchars($mode);
+    $mode = (isset($HTTP_POST_VARS['mode'])) ? $HTTP_POST_VARS['mode'] : $HTTP_GET_VARS['mode'];
+    $mode = htmlspecialchars($mode);
 }
 else
 {
-        $mode = '';
+    $mode = '';
 }
 
 //

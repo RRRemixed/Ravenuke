@@ -20,9 +20,9 @@
  *
  ***************************************************************************/
 
-if ( !defined('IN_PHPBB') )
+if (!defined('IN_PHPBB'))
 {
-        die("Hacking attempt");
+    die("Hacking attempt");
 }
 
 // Debug Level
@@ -99,6 +99,7 @@ define('PAGE_FAQ', -8);
 define('PAGE_POSTING', -9);
 define('PAGE_PRIVMSGS', -10);
 define('PAGE_GROUPCP', -11);
+define('PAGE_STAFF', -12);
 define('PAGE_GAME', -50);
 define('PAGE_ARCADES', -51);
 define('PAGE_TOPARCADES', -52);
@@ -127,6 +128,8 @@ define('AUTH_STICKY', 8);
 define('AUTH_POLLCREATE', 9);
 define('AUTH_VOTE', 10);
 define('AUTH_ATTACH', 11);
+define('AUTH_GLOBALANNOUNCE', 12);
+
 // Table names
 define('CONFIRM_TABLE', $prefix.'_bbconfirm');
 define('AUTH_ACCESS_TABLE', $prefix.'_bbauth_access');

@@ -24,11 +24,11 @@ define('IN_PHPBB', 1);
 
 if( !empty($setmodules) )
 {
-        $filename = basename(__FILE__);
-        $module['Users']['Permissions'] = $filename . "?mode=user";
-        $module['Groups']['Permissions'] = $filename . "?mode=group";
+    $filename = basename(__FILE__);
+    $module['Users']['Permissions'] = $filename . "?mode=user";
+    $module['Groups']['Permissions'] = $filename . "?mode=group";
 
-        return;
+    return;
 }
 
 //
@@ -61,7 +61,7 @@ $mode = htmlspecialchars($mode);
 //
 // Start program - define vars
 //
-$forum_auth_fields = array('auth_view', 'auth_read', 'auth_post', 'auth_reply', 'auth_edit', 'auth_delete', 'auth_sticky', 'auth_announce', 'auth_vote', 'auth_pollcreate');
+$forum_auth_fields = array('auth_view', 'auth_read', 'auth_post', 'auth_reply', 'auth_edit', 'auth_delete', 'auth_sticky', 'auth_announce', 'auth_globalannounce', 'auth_vote', 'auth_pollcreate');
 
 $auth_field_match = array(
         'auth_view' => AUTH_VIEW,
@@ -72,6 +72,7 @@ $auth_field_match = array(
         'auth_delete' => AUTH_DELETE,
         'auth_sticky' => AUTH_STICKY,
         'auth_announce' => AUTH_ANNOUNCE,
+		'auth_globalannounce' => AUTH_GLOBALANNOUNCE, 
         'auth_vote' => AUTH_VOTE,
         'auth_pollcreate' => AUTH_POLLCREATE);
 
@@ -84,6 +85,7 @@ $field_names = array(
         'auth_delete' => $lang['Delete'],
         'auth_sticky' => $lang['Sticky'],
         'auth_announce' => $lang['Announce'],
+		'auth_globalannounce' => $lang['Globalannounce'], 
         'auth_vote' => $lang['Vote'],
         'auth_pollcreate' => $lang['Pollcreate']);
         
@@ -185,7 +187,7 @@ if ( isset($HTTP_POST_VARS['submit']) && ( ( $mode == 'user' && $user_id ) || ( 
                         // admin
                         //
                         $sql = "UPDATE " . AUTH_ACCESS_TABLE . "
-                                SET auth_view = '0', auth_read = '0', auth_post = '0', auth_reply = '0', auth_edit = '0', auth_delete = '0', auth_sticky = '0', auth_announce = '0'
+                                SET auth_view = '0', auth_read = '0', auth_post = '0', auth_reply = '0', auth_edit = '0', auth_delete = '0', auth_sticky = '0', auth_announce = '0', auth_globalannounce = '0'
                                 WHERE group_id = '$group_id'";
                         if ( !($result = $db->sql_query($sql)) )
                         {
@@ -207,7 +209,7 @@ if ( isset($HTTP_POST_VARS['submit']) && ( ( $mode == 'user' && $user_id ) || ( 
                         if ( $userdata['user_id'] != $user_id )
                         {
                                 $sql = "UPDATE " . AUTH_ACCESS_TABLE . "
-                                        SET auth_view = '0', auth_read = '0', auth_post = '0', auth_reply = '0', auth_edit = '0', auth_delete = '0', auth_sticky = '0', auth_announce = '0'
+                                        SET auth_view = '0', auth_read = '0', auth_post = '0', auth_reply = '0', auth_edit = '0', auth_delete = '0', auth_sticky = '0', auth_announce = '0', auth_globalannounce = '0'
                                         WHERE group_id = '$group_id'";
                                 if ( !($result = $db->sql_query($sql)) )
                                 {

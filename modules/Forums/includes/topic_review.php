@@ -91,7 +91,7 @@ function topic_review($topic_id, $is_inline_review)
         //
         // Dump out the page header and load viewtopic body template
         //
-        if ( !$is_inline_review )
+        if (!$is_inline_review)
         {
                 $gen_simple_header = TRUE;
 

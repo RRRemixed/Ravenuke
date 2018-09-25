@@ -65,26 +65,26 @@ if (!defined('IN_PHPBB')) {
 function nuke_sql($query)
 {
 //echo "before = $query<br />";
-        $nuke_sql = str_replace(" username", " username", $query);
-        if (ereg ('privmsgs_text', $nuke_sql)){
-            $nuke_sql = str_replace("uname_", "username_", $query);
-        }
-        $nuke_sql = str_replace("u.username", "u.username", $nuke_sql);
-        $nuke_sql = str_replace("u2.username", "u2.username", $nuke_sql);
-        $nuke_sql = str_replace("user_password", "user_password", $nuke_sql);
-        $nuke_sql = str_replace("user_website", "user_website", $nuke_sql);
-        if ((stristr($nuke_sql, "user_email,")) || (stristr($nuke_sql, "user_email "))){
-            $nuke_sql = str_replace("user_email", "user_email", $nuke_sql);
-        }
-        $nuke_sql = str_replace("user_interests", "user_intrest", $nuke_sql);
-        if (stristr($nuke_sql,"topics_watch") || (stristr($nuke_sql,"user_group"))){
-        } else {
-            $nuke_sql = str_replace(" user_id", " user_id", $nuke_sql);
-        }
-        $nuke_sql = str_replace("uid_", "user_id_", $nuke_sql);
-        $nuke_sql = str_replace("\(user_id", "\(user_id", $nuke_sql);
-        $nuke_sql = str_replace("u.user_id", "u.user_id", $nuke_sql);
-        $nuke_sql = str_replace("u2.user_id", "u2.user_id", $nuke_sql);
+    $nuke_sql = str_replace(" username", " username", $query);
+    if (ereg ('privmsgs_text', $nuke_sql)){
+        $nuke_sql = str_replace("uname_", "username_", $query);
+    }
+    $nuke_sql = str_replace("u.username", "u.username", $nuke_sql);
+    $nuke_sql = str_replace("u2.username", "u2.username", $nuke_sql);
+    $nuke_sql = str_replace("user_password", "user_password", $nuke_sql);
+    $nuke_sql = str_replace("user_website", "user_website", $nuke_sql);
+    if ((stristr($nuke_sql, "user_email,")) || (stristr($nuke_sql, "user_email "))){
+        $nuke_sql = str_replace("user_email", "user_email", $nuke_sql);
+    }
+    $nuke_sql = str_replace("user_interests", "user_intrest", $nuke_sql);
+    if (stristr($nuke_sql,"topics_watch") || (stristr($nuke_sql,"user_group"))){
+    } else {
+        $nuke_sql = str_replace(" user_id", " user_id", $nuke_sql);
+    }
+    $nuke_sql = str_replace("uid_", "user_id_", $nuke_sql);
+    $nuke_sql = str_replace("\(user_id", "\(user_id", $nuke_sql);
+    $nuke_sql = str_replace("u.user_id", "u.user_id", $nuke_sql);
+    $nuke_sql = str_replace("u2.user_id", "u2.user_id", $nuke_sql);
 //echo "after  = $nuke_sql<br /><br />";
 
     return $nuke_sql;

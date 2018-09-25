@@ -38,6 +38,7 @@ marql_help="Marque text to Left: [marq=left]text[/marq]";
 marqu_help="Marque text to up: [marq=up]text[/marq]";
 marqd_help="Marque text to down: [marq=down]text[/marq]";
 stream_help="Insert stream file: [stream]File URL[/stream]";
+mp3_help="Insert mp3 file: [mp3]File URL[/mp3]";
 ram_help="Insert Real Media file: [ram]File URL[/ram]";
 web_help="Insert Web Page into the post : [web]Page URL[/web]";
 plain_help="Remove BBCodes from the selected text";
@@ -75,6 +76,7 @@ var mail = 0;
 var web = 0;
 var video = 0;
 var stream = 0;
+var mp3 = 0;
 var ram = 0;
 var hr = 0;
 var grad = 0;
@@ -159,6 +161,20 @@ function BBCstream() {
                 return;
         }
         var ToAdd = "[stream]"+enterURL+"[/stream]";
+        PostWrite(ToAdd);
+}
+
+function BBCmp3() {
+        var FoundErrors = '';
+        var enterURL   = prompt("Please write mp3 file URL","http://");
+        if (!enterURL) {
+                FoundErrors += " You didn't write the file URL.";
+        }
+        if (FoundErrors) {
+                alert("Error:"+FoundErrors);
+                return;
+        }
+        var ToAdd = "[mp3]"+enterURL+"[/mp3]";
         PostWrite(ToAdd);
 }
 

@@ -74,6 +74,9 @@
 				<td width="20" align="center"><img src="{FOLDER_IMG}" alt="{L_NO_NEW_POSTS}" width="19" height="18" /></td>
 				<td class="gensmall">{L_NO_NEW_POSTS}</td>
 				<td>&nbsp;&nbsp;</td>
+				<td width="20" align="center"><img src="{FOLDER_GLOBAL_ANNOUNCE_IMG}" alt="{L_GLOBAL_ANNOUNCEMENT}" width="19" height="18" /></td>
+				<td class="gensmall">{L_GLOBAL_ANNOUNCEMENT}</td>	
+				<td>&nbsp;&nbsp;</td>
 				<td width="20" align="center"><img src="{FOLDER_ANNOUNCE_IMG}" alt="{L_ANNOUNCEMENT}" width="19" height="18" /></td>
 				<td class="gensmall">{L_ANNOUNCEMENT}</td>
 			</tr>

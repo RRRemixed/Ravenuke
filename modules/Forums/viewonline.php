@@ -105,100 +105,105 @@ $prev_ip = '';
 
 while ( $row = $db->sql_fetchrow($result) )
 {
-        $view_online = false;
+    $view_online = false;
 
-        if ( $row['session_logged_in'] )
+    if ( $row['session_logged_in'] )
+    {
+        $user_id = $row['user_id'];
+
+        if ( $user_id != $prev_user )
         {
-                $user_id = $row['user_id'];
+            $username = CheckUsernameColor($row['user_color_gc'], $row['username']);
 
-                if ( $user_id != $prev_user )
-                {
-                        $username = CheckUsernameColor($row['user_color_gc'], $row['username']);
+            if ( $row['user_level'] == ADMIN )
+            {
+                $username = '<b style="color:#' . $theme['fontcolor3'] . '">' . $username . '</b>';
+            }
+            else if ( $row['user_level'] == MOD )
+            {
+                $username = '<b style="color:#' . $theme['fontcolor2'] . '">' . $username . '</b>';
+            }
 
-                        if ( $row['user_level'] == ADMIN )
-                        {
-                                $username = '<b style="color:#' . $theme['fontcolor3'] . '">' . $username . '</b>';
-                        }
-                        else if ( $row['user_level'] == MOD )
-                        {
-                                $username = '<b style="color:#' . $theme['fontcolor2'] . '">' . $username . '</b>';
-                        }
+            if ( !$row['user_allow_viewonline'] )
+            {
+                $view_online = ( $userdata['user_level'] == ADMIN ) ? true : false;
+                $hidden_users++;
 
-                        if ( !$row['user_allow_viewonline'] )
-                        {
-                                $view_online = ( $userdata['user_level'] == ADMIN ) ? true : false;
-                                $hidden_users++;
+                $username = '<i>' . $username . '</i>';
+            }
+            else
+            {
+                $view_online = true;
+                $registered_users++;
+            }
 
-                                $username = '<i>' . $username . '</i>';
-                        }
-                        else
-                        {
-                                $view_online = true;
-                                $registered_users++;
-                        }
-
-                        $which_counter = 'reg_counter';
-                        $which_row = 'reg_user_row';
-                        $prev_user = $user_id;
-                }
+            $which_counter = 'reg_counter';
+            $which_row = 'reg_user_row';
+            $prev_user = $user_id;
         }
-        else
+    }
+    else
+    {
+        if ( $row['session_ip'] != $prev_ip )
         {
-                if ( $row['session_ip'] != $prev_ip )
-                {
-                        $username = $lang['Guest'];
-                        $view_online = true;
-                        $guest_users++;
+            $username = $lang['Guest'];
+            $view_online = true;
+            $guest_users++;
 
-                        $which_counter = 'guest_counter';
-                        $which_row = 'guest_user_row';
-                }
+            $which_counter = 'guest_counter';
+            $which_row = 'guest_user_row';
         }
+    }
 
-        $prev_ip = $row['session_ip'];
+    $prev_ip = $row['session_ip'];
 
-        if ( $view_online )
-        {
-                if ( $row['session_page'] < 1 || !$is_auth_ary[$row['session_page']]['auth_view'] )
-                {
-                        switch( $row['session_page'] )
-                        {
-                                case PAGE_INDEX:
-                                        $location = $lang['Forum_index'];
-                                        $location_url = "index.$phpEx";
+    if ($view_online)
+    {
+        if ($row['session_page'] < 1 || !$is_auth_ary[$row['session_page']]['auth_view'])
+            {
+                switch( $row['session_page'] )
+            {
+                case PAGE_INDEX:
+                    $location = $lang['Forum_index'];
+                    $location_url = "index.$phpEx";
+                    break;
+                case PAGE_POSTING:
+                    $location = $lang['Posting_message'];
+                    $location_url = "index.$phpEx";
+                    break;
+                case PAGE_LOGIN:
+                    $location = $lang['Logging_on'];
+                    $location_url = "index.$phpEx";
+                     break;
+                case PAGE_SEARCH:
+                    $location = $lang['Searching_forums'];
+                    $location_url = "search.$phpEx";
+                    break;
+                case PAGE_PROFILE:
+                    $location = $lang['Viewing_profile'];
+                    $location_url = "index.$phpEx";
+                     break;
+                case PAGE_VIEWONLINE:
+                    $location = $lang['Viewing_online'];
+                    $location_url = "viewonline.$phpEx";
                                         break;
-                                case PAGE_POSTING:
-                                        $location = $lang['Posting_message'];
-                                        $location_url = "index.$phpEx";
-                                        break;
-                                case PAGE_LOGIN:
-                                        $location = $lang['Logging_on'];
-                                        $location_url = "index.$phpEx";
-                                        break;
-                                case PAGE_SEARCH:
-                                        $location = $lang['Searching_forums'];
-                                        $location_url = "search.$phpEx";
-                                        break;
-                                case PAGE_PROFILE:
-                                        $location = $lang['Viewing_profile'];
-                                        $location_url = "index.$phpEx";
-                                        break;
-                                case PAGE_VIEWONLINE:
-                                        $location = $lang['Viewing_online'];
-                                        $location_url = "viewonline.$phpEx";
-                                        break;
-                                case PAGE_VIEWMEMBERS:
-                                        $location = $lang['Viewing_member_list'];
-                                        $location_url = "memberlist.$phpEx";
-                                        break;
-                                case PAGE_PRIVMSGS:
-                                        $location = $lang['Viewing_priv_msgs'];
-                                        $location_url = "privmsg.$phpEx";
-                                        break;
-                                case PAGE_FAQ:
-                                        $location = $lang['Viewing_FAQ'];
-                                        $location_url = "faq.$phpEx";
-                                        break;
+                case PAGE_VIEWMEMBERS:
+                    $location = $lang['Viewing_member_list'];
+                    $location_url = "memberlist.$phpEx";
+                    break;
+				case PAGE_PRIVMSGS:
+                    $location = $lang['Viewing_priv_msgs'];
+                    $location_url = "privmsg.$phpEx";
+                    break;
+				case PAGE_FAQ:
+                    $location = $lang['Viewing_FAQ'];
+                    $location_url = "faq.$phpEx";
+                    break;
+				case PAGE_STAFF:
+					$location = $lang['Staff'];
+					$location_url = "staff.$phpEx";
+					break;
+
 				case PAGE_GAME: 
 					$location = $lang['Playing_game']; 
 					$location_url = "arcade.$phpEx"; 
@@ -250,8 +255,8 @@ while ( $row = $db->sql_fetchrow($result) )
                 }
                 else
                 {
-			$location_url = append_sid("viewforum.$phpEx?" . POST_FORUM_URL . '=' . $row['session_page']);
-                        $location = $forum_data[$row['session_page']];
+					$location_url = append_sid("viewforum.$phpEx?" . POST_FORUM_URL . '=' . $row['session_page']);
+                    $location = $forum_data[$row['session_page']];
                 }
 
                 $row_color = ( $$which_counter % 2 ) ? $theme['td_color1'] : $theme['td_color2'];
@@ -272,43 +277,43 @@ while ( $row = $db->sql_fetchrow($result) )
         }
 }
 
-if( $registered_users == 0 )
+if ($registered_users == 0)
 {
-        $l_r_user_s = $lang['Reg_users_zero_online'];
+    $l_r_user_s = $lang['Reg_users_zero_online'];
 }
-else if( $registered_users == 1 )
+else if ($registered_users == 1)
 {
-        $l_r_user_s = $lang['Reg_user_online'];
+    $l_r_user_s = $lang['Reg_user_online'];
 }
 else
 {
-        $l_r_user_s = $lang['Reg_users_online'];
+    $l_r_user_s = $lang['Reg_users_online'];
 }
 
-if( $hidden_users == 0 )
+if ($hidden_users == 0)
 {
-        $l_h_user_s = $lang['Hidden_users_zero_online'];
+    $l_h_user_s = $lang['Hidden_users_zero_online'];
 }
-else if( $hidden_users == 1 )
+else if ($hidden_users == 1)
 {
-        $l_h_user_s = $lang['Hidden_user_online'];
+    $l_h_user_s = $lang['Hidden_user_online'];
 }
 else
 {
-        $l_h_user_s = $lang['Hidden_users_online'];
+    $l_h_user_s = $lang['Hidden_users_online'];
 }
 
-if( $guest_users == 0 )
+if ($guest_users == 0)
 {
-        $l_g_user_s = $lang['Guest_users_zero_online'];
+    $l_g_user_s = $lang['Guest_users_zero_online'];
 }
-else if( $guest_users == 1 )
+else if ($guest_users == 1 )
 {
-        $l_g_user_s = $lang['Guest_user_online'];
+    $l_g_user_s = $lang['Guest_user_online'];
 }
 else
 {
-        $l_g_user_s = $lang['Guest_users_online'];
+    $l_g_user_s = $lang['Guest_users_online'];
 }
 
 #======================================================================= |
@@ -344,18 +349,18 @@ $template->assign_vars(array(
         'TOTAL_GUEST_USERS_ONLINE' => sprintf($l_g_user_s, $guest_users))
 );
 
-if ( $registered_users + $hidden_users == 0 )
+if ($registered_users + $hidden_users == 0)
 {
-        $template->assign_vars(array(
-                'L_NO_REGISTERED_USERS_BROWSING' => $lang['No_users_browsing'])
+    $template->assign_vars(array(
+        'L_NO_REGISTERED_USERS_BROWSING' => $lang['No_users_browsing'])
         );
 }
 
-if ( $guest_users == 0 )
+if ($guest_users == 0)
 {
-        $template->assign_vars(array(
-                'L_NO_GUESTS_BROWSING' => $lang['No_users_browsing'])
-        );
+    $template->assign_vars(array(
+        'L_NO_GUESTS_BROWSING' => $lang['No_users_browsing'])
+    );
 }
 
 $template->pparse('body');

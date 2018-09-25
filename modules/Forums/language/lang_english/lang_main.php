@@ -386,6 +386,7 @@ $lang['bbcode_w_help'] = 'Insert URL: [url]http://url[/url] or [url=http://url]U
 $lang['bbcode_a_help'] = 'Close all open bbCode tags';
 $lang['bbcode_s_help'] = 'Font color: [color=red]text[/color]  Tip: you can also use color=#FF0000';
 $lang['bbcode_f_help'] = 'Font size: [size=x-small]small text[/size]';
+$lang['bbcode_r_help'] = 'Flash: [swf width=# height=#]http://swf_url[/swf]';
 
 $lang['Emoticons'] = 'Emoticons';
 $lang['More_emoticons'] = 'View more Emoticons';
@@ -1165,6 +1166,11 @@ $lang['Calendar_interval'] = 'Interval';
 $lang['Calendar_repeat'] = 'Repeat';
 $lang['Calendar_start_monday'] = false;
 $lang['Date_selector'] = 'Date Selector';   // title/header for Date Selector Window
+
+// add to global announcment mod 
+$lang['Topic_global_announcement']='<b>Global Announcement:</b>'; 
+$lang['Post_global_announcement'] = 'Global Announcement';
+$lang['Globalannounce'] ='Global Announce'; 
 // That's all, Folks!
 // -------------------------------------------------
 

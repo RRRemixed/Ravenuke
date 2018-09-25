@@ -405,6 +405,7 @@ $lang['bbcode_w_help'] = 'Ins&eacute;rer un lien : [url]http://lien[/url] ou [ur
 $lang['bbcode_a_help'] = 'Fermer toutes les balises BBCode ouvertes';
 $lang['bbcode_s_help'] = 'Couleur du texte : [color=red]texte[/color] ou [color=#FF0000]texte[/color]';
 $lang['bbcode_f_help'] = 'Taille du texte : [size=x-small]petit texte[/size]';
+$lang['bbcode_r_help'] = 'Flash: [swf width=# height=#]http://swf_url[/swf]';
 
 $lang['Emoticons'] = '&eacute;motic&ocirc;nes';
 $lang['More_emoticons'] = 'Voir plus d\'&eacute;motic&ocirc;nes';
@@ -1030,7 +1031,15 @@ $lang['interval']['month'] = 'mois';
 $lang['interval']['months'] = 'mois';
 $lang['interval']['year'] = 'ann&eacute;e';
 $lang['interval']['years'] = 'anne&eacute;s';
-
+//Staff Site
+$lang['Staff'] = "Staff";
+$lang['Forums'] = 'Forums';
+$lang['Mod'] = "Moderator";
+$lang['Admin'] = "Administrator";
+$lang['Super'] = "Super Moderator";
+$lang['Junior'] = "Junior Admin";
+$lang['Period'] = 'since <b>%d</b> days'; // %d = days
+$lang['Messenger'] = 'Messenger';
 
 //
 // Errors (not related to a
@@ -1079,7 +1088,7 @@ $lang['youtube_link'] = 'Link';
 //===================================================================== |
 //Jail
 $lang['Cell_courthouse']='Tribunal';
-$lang['Celleds_time']='Emprisonnement';
+$lang['Celleds_time']='Emprisonnement: ';
 // SMILIES List
 $lang['SMILIES'] = "Smilies";
 $lang['smiley_url'] = "Emoticon";
@@ -1193,6 +1202,11 @@ $lang['Calendar_interval'] = 'Interval';
 $lang['Calendar_repeat'] = 'Repeat';
 $lang['Calendar_start_monday'] = false;
 $lang['Date_selector'] = 'Date Selector';   // title/header for Date Selector Window
+
+// add to global announcment mod 
+$lang['Topic_global_announcement']='<b>Global Annoncement:</b>'; 
+$lang['Post_global_announcement'] = 'Global Annoncement';
+$lang['Globalannounce'] ='Global Annonce'; 
 //
 // That's all, Folks!
 // -------------------------------------------------

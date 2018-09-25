@@ -431,6 +431,10 @@ elseif( isset($HTTP_GET_VARS['pane']) && $HTTP_GET_VARS['pane'] == 'right' )
                                                         $location = $lang['Viewing_FAQ'];
                                                         $location_url = "index.$phpEx?pane=right";
                                                         break;
+                        				case PAGE_STAFF:
+		                        			$location = $lang['Staff'];
+                        					$location_url = "../staff.$phpEx";
+				                        	break;
                                                 case PAGE_GAME:
                                                         $location = $lang['Playing_game'];
                                                         $location_url = "index.$phpEx?pane=right";

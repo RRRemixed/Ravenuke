@@ -345,6 +345,31 @@ for($i = 0; $i < count($previous_days); $i++)
 }
 $select_topic_days .= '</select>';
 
+//
+// All GLOBAL announcement data, this keeps GLOBAL announcements
+// on each viewforum page ...
+//
+$sql = "SELECT t.*, u.username, u.user_id, u2.username as user2, u2.user_id as id2, p.post_time, p.post_username
+   FROM " . TOPICS_TABLE . " t, " . USERS_TABLE . " u, " . POSTS_TABLE . " p, " . USERS_TABLE . " u2
+   WHERE t.topic_poster = u.user_id
+      AND p.post_id = t.topic_last_post_id
+      AND p.poster_id = u2.user_id
+      AND t.topic_type = " . POST_GLOBAL_ANNOUNCE . "
+   ORDER BY t.topic_last_post_id DESC ";
+if( !$result = $db->sql_query($sql) )
+{
+   message_die(GENERAL_ERROR, "Couldn't obtain topic information", "", __LINE__, __FILE__, $sql);
+}
+
+$topic_rowset = array();
+$total_announcements = 0;
+while( $row = $db->sql_fetchrow($result) )
+{
+   $topic_rowset[] = $row;
+   $total_announcements++;
+}
+
+$db->sql_freeresult($result);
 
 //
 // All announcement data, this keeps announcements
@@ -357,14 +382,13 @@ $sql = "SELECT t.*, u.username, u.user_color_gc, u.user_id, u2.username as user2
                 AND p.post_id = t.topic_last_post_id
                 AND p.poster_id = u2.user_id
                 AND t.topic_type = " . POST_ANNOUNCE . "
+				AND t.topic_type <> " . POST_GLOBAL_ANNOUNCE . " 
         ORDER BY t.topic_last_post_id DESC ";
 if ( !($result = $db->sql_query($sql)) )
 {
    message_die(GENERAL_ERROR, 'Could not obtain topic information', '', __LINE__, __FILE__, $sql);
 }
 
-$topic_rowset = array();
-$total_announcements = 0;
 while( $row = $db->sql_fetchrow($result) )
 {
         $topic_rowset[] = $row;
@@ -385,6 +409,7 @@ $sql = "SELECT t.*, u.username,  u.user_color_gc, u.user_id, u2.username as user
                 AND p2.post_id = t.topic_last_post_id
                 AND u2.user_id = p2.poster_id
                 AND t.topic_type <> " . POST_ANNOUNCE . "
+				AND t.topic_type <> " . POST_GLOBAL_ANNOUNCE . " 
                 $limit_topics_time
         ORDER BY t.topic_type DESC, t.topic_last_post_id DESC
         LIMIT $start, ".$board_config['topics_per_page'];
@@ -429,11 +454,11 @@ $template->assign_vars(array(
 //
 // User authorisation levels output
 //
-$s_auth_can = ( ( $is_auth['auth_post'] ) ? $lang['Rules_post_can'] : $lang['Rules_post_cannot'] ) . '<br />';
-$s_auth_can .= ( ( $is_auth['auth_reply'] ) ? $lang['Rules_reply_can'] : $lang['Rules_reply_cannot'] ) . '<br />';
-$s_auth_can .= ( ( $is_auth['auth_edit'] ) ? $lang['Rules_edit_can'] : $lang['Rules_edit_cannot'] ) . '<br />';
-$s_auth_can .= ( ( $is_auth['auth_delete'] ) ? $lang['Rules_delete_can'] : $lang['Rules_delete_cannot'] ) . '<br />';
-$s_auth_can .= ( ( $is_auth['auth_vote'] ) ? $lang['Rules_vote_can'] : $lang['Rules_vote_cannot'] ) . '<br />';
+$s_auth_can = (($is_auth['auth_post']) ? $lang['Rules_post_can'] : $lang['Rules_post_cannot'] ) . '<br />';
+$s_auth_can .= (($is_auth['auth_reply']) ? $lang['Rules_reply_can'] : $lang['Rules_reply_cannot'] ) . '<br />';
+$s_auth_can .= (($is_auth['auth_edit']) ? $lang['Rules_edit_can'] : $lang['Rules_edit_cannot'] ) . '<br />';
+$s_auth_can .= (($is_auth['auth_delete'] ) ? $lang['Rules_delete_can'] : $lang['Rules_delete_cannot'] ) . '<br />';
+$s_auth_can .= (($is_auth['auth_vote'] ) ? $lang['Rules_vote_can'] : $lang['Rules_vote_cannot'] ) . '<br />';
 attach_build_auth_levels($is_auth, $s_auth_can);
 
 if ( $is_auth['auth_mod'] )
@@ -493,6 +518,7 @@ $template->assign_vars(array(
         'L_NO_NEW_POSTS_HOT' => $lang['No_new_posts_hot'],
         'L_NEW_POSTS_HOT' => $lang['New_posts_hot'],
         'L_ANNOUNCEMENT' => $lang['Post_Announcement'],
+		'L_GLOBAL_ANNOUNCEMENT' => $lang['Post_global_announcement'], 
         'L_STICKY' => $lang['Post_Sticky'],
         'L_POSTED' => $lang['Posted'],
         'L_JOINED' => $lang['Joined'],
@@ -511,29 +537,33 @@ $template->assign_vars(array(
 //
 // Okay, lets dump out the page ...
 //
-if( $total_topics )
+if($total_topics )
 {
-        for($i = 0; $i < $total_topics; $i++)
-        {
-                $topic_id = $topic_rowset[$i]['topic_id'];
+    for($i = 0; $i < $total_topics; $i++)
+    {
+        $topic_id = $topic_rowset[$i]['topic_id'];
 
-                $topic_title = ( count($orig_word) ) ? preg_replace($orig_word, $replacement_word, $topic_rowset[$i]['topic_title']) : $topic_rowset[$i]['topic_title'];
+        $topic_title = (count($orig_word)) ? preg_replace($orig_word, $replacement_word, $topic_rowset[$i]['topic_title']) : $topic_rowset[$i]['topic_title'];
 
                 $replies = $topic_rowset[$i]['topic_replies'];
 
                 $topic_type = $topic_rowset[$i]['topic_type'];
 
-                if( $topic_type == POST_ANNOUNCE )
+                if($topic_type == POST_ANNOUNCE)
                 {
-                        $topic_type = $lang['Topic_Announcement'] . ' ';
+                    $topic_type = $lang['Topic_Announcement'] . ' ';
                 }
-                else if( $topic_type == POST_STICKY )
+				else if($topic_type == POST_GLOBAL_ANNOUNCE) 
+                { 
+                    $topic_type = $lang['Topic_global_announcement'] . ' '; 
+                }
+                else if($topic_type == POST_STICKY)
                 {
-                        $topic_type = $lang['Topic_Sticky'] . ' ';
+                    $topic_type = $lang['Topic_Sticky'] . ' ';
                 }
                 else
                 {
-                        $topic_type = '';
+                    $topic_type = '';
                 }
 
                 if( $topic_rowset[$i]['topic_vote'] )
@@ -552,7 +582,11 @@ if( $total_topics )
                 }
                 else
                 {
-                        if( $topic_rowset[$i]['topic_type'] == POST_ANNOUNCE )
+                        if($topic_rowset[$i]['topic_type'] == POST_GLOBAL_ANNOUNCE) 
+                        { 
+                            $folder = $images['folder_global_announce']; 
+                            $folder_new = $images['folder_global_announce_new']; 
+                        } elseif( $topic_rowset[$i]['topic_type'] == POST_ANNOUNCE )
                         {
                                 $folder = $images['folder_announce'];
                                 $folder_new = $images['folder_announce_new'];
@@ -731,7 +765,6 @@ if( $total_topics )
                         'LAST_POST_TIME' => $last_post_time,
                         'LAST_POST_AUTHOR' => $last_post_author,
                         'LAST_POST_IMG' => $last_post_url,
-
                         'L_TOPIC_FOLDER_ALT' => $folder_alt,
 
                         'U_VIEW_TOPIC' => $view_topic_url)

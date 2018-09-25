@@ -108,6 +108,10 @@ function prepare_bbcode_template($bbcode_tpl)
 	$bbcode_tpl['url4'] = str_replace('{DESCRIPTION}', '\\3', $bbcode_tpl['url4']);
 
 	$bbcode_tpl['email'] = str_replace('{EMAIL}', '\\1', $bbcode_tpl['email']);
+
+	$bbcode_tpl['swf'] = str_replace('{WIDTH}', '\\1', $bbcode_tpl['swf']);
+	$bbcode_tpl['swf'] = str_replace('{HEIGHT}', '\\2', $bbcode_tpl['swf']);
+	$bbcode_tpl['swf'] = str_replace('{URL}', '\\3', $bbcode_tpl['swf']);
 //====================================================================== |
 //==== Start Advanced BBCode Box MOD =================================== |
 //==== v5.1.0 ========================================================== |
@@ -119,8 +123,8 @@ function prepare_bbcode_template($bbcode_tpl)
 	$bbcode_tpl['stream'] = str_replace('{URL}', '\\1', $bbcode_tpl['stream']);
 	$bbcode_tpl['ram'] = str_replace('{URL}', '\\1', $bbcode_tpl['ram']);
 	$bbcode_tpl['marq_open'] = str_replace('{MARQ}', '\\1', $bbcode_tpl['marq_open']);
-        $bbcode_tpl['table_open'] = str_replace('{TABLE}', '\\1', $bbcode_tpl['table_open']);
-        $bbcode_tpl['cell_open'] = str_replace('{CELL}', '\\1', $bbcode_tpl['cell_open']);
+    $bbcode_tpl['table_open'] = str_replace('{TABLE}', '\\1', $bbcode_tpl['table_open']);
+    $bbcode_tpl['cell_open'] = str_replace('{CELL}', '\\1', $bbcode_tpl['cell_open']);
 	$bbcode_tpl['web'] = str_replace('{URL}', '\\1', $bbcode_tpl['web']);
 	$bbcode_tpl['flash'] = str_replace('{WIDTH}', '\\1', $bbcode_tpl['flash']);
 	$bbcode_tpl['flash'] = str_replace('{HEIGHT}', '\\2', $bbcode_tpl['flash']);
@@ -131,9 +135,9 @@ function prepare_bbcode_template($bbcode_tpl)
 	$bbcode_tpl['font_open'] = str_replace('{FONT}', '\\1', $bbcode_tpl['font_open']);
 	$bbcode_tpl['poet_open'] = str_replace('{POET}', '\\1', $bbcode_tpl['poet_open']);
 	$bbcode_tpl['GVideo'] = str_replace('{GVIDEOID}', '\\1', $bbcode_tpl['GVideo']);
-        $bbcode_tpl['GVideo'] = str_replace('{GVIDEOLINK}', $lang['GVideo_link'], $bbcode_tpl['GVideo']);
-        $bbcode_tpl['youtube'] = str_replace('{YOUTUBEID}', '\\1', $bbcode_tpl['youtube']);
-        $bbcode_tpl['youtube'] = str_replace('{YOUTUBELINK}', $lang['youtube_link'], $bbcode_tpl['youtube']);
+    $bbcode_tpl['GVideo'] = str_replace('{GVIDEOLINK}', $lang['GVideo_link'], $bbcode_tpl['GVideo']);
+    $bbcode_tpl['youtube'] = str_replace('{YOUTUBEID}', '\\1', $bbcode_tpl['youtube']);
+    $bbcode_tpl['youtube'] = str_replace('{YOUTUBELINK}', $lang['youtube_link'], $bbcode_tpl['youtube']);
 //====
 //==== End Advanced BBCode Box MOD ==================================== |
 //===================================================================== |
@@ -264,6 +268,9 @@ function bbencode_second_pass($text, $uid)
 	$patterns[] = "#\[email\]([a-z0-9&\-_.]+?@[\w\-]+\.([\w\-\.]+\.)?[\w]+)\[/email\]#si";
 	$replacements[] = $bbcode_tpl['email'];
 
+	// [swf width=# height=#]filename[/swf]
+	$patterns[7] = "#\[swf width=([0-9]?[0-9]?[0-9]) height=([0-9]?[0-9]?[0-9]):$uid\](.*?)\[/swf:$uid\]#si"; 
+	$replacements[7] = $bbcode_tpl[swf];
 //====================================================================== |
 //==== Start Advanced BBCode Box MOD =================================== |
 //==== v5.1.0 ========================================================== |
@@ -409,6 +416,8 @@ function bbencode_first_pass($text, $uid)
 	// [img]image_url_here[/img] code..
 	$text = preg_replace("#\[img\]((http|ftp|https|ftps)://)([^ \?&=\#\"\n\r\t<]*?(\.(jpg|jpeg|gif|png)))\[/img\]#sie", "'[img:$uid]\\1' . str_replace(' ', '%20', '\\3') . '[/img:$uid]'", $text);
 
+	// [swf width=# height=#]url[/swf]
+	$text = preg_replace("#\[swf width=([0-9]?[0-9]?[0-9]) height=([0-9]?[0-9]?[0-9])\](([a-z]+?)://([^, \n\r]+))\[\/swf\]#si","[swf width=\\1 height=\\2:$uid\]\\3[/swf:$uid]", $text);
 	// Remove our padding from the string..
 	return substr($text, 1);;
 

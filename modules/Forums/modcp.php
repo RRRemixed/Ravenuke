@@ -27,7 +27,8 @@
  * provide an interface to do quick locking/unlocking/moving/deleting of
  * topics via the moderator operations buttons on all of the viewtopic pages.
  */
-if ( !defined('MODULE_FILE') )
+
+if (!defined('MODULE_FILE'))
 {
 	die("You can't access this file directly...");
 }
@@ -44,7 +45,7 @@ include_once("modules/$module_name/mycalendar_mod/mycalendar_functions.php");
 //
 // Obtain initial var settings
 //
-if ( isset($HTTP_GET_VARS[POST_FORUM_URL]) || isset($HTTP_POST_VARS[POST_FORUM_URL]) )
+if (isset($HTTP_GET_VARS[POST_FORUM_URL]) || isset($HTTP_POST_VARS[POST_FORUM_URL]))
 {
 	$forum_id = (isset($HTTP_POST_VARS[POST_FORUM_URL])) ? intval($HTTP_POST_VARS[POST_FORUM_URL]) : intval($HTTP_GET_VARS[POST_FORUM_URL]);
 }
@@ -53,7 +54,7 @@ else
 	$forum_id = '';
 }
 
-if ( isset($HTTP_GET_VARS[POST_POST_URL]) || isset($HTTP_POST_VARS[POST_POST_URL]) )
+if (isset($HTTP_GET_VARS[POST_POST_URL]) || isset($HTTP_POST_VARS[POST_POST_URL]))
 {
 	$post_id = (isset($HTTP_POST_VARS[POST_POST_URL])) ? intval($HTTP_POST_VARS[POST_POST_URL]) : intval($HTTP_GET_VARS[POST_POST_URL]);
 }
@@ -62,7 +63,7 @@ else
 	$post_id = '';
 }
 
-if ( isset($HTTP_GET_VARS[POST_TOPIC_URL]) || isset($HTTP_POST_VARS[POST_TOPIC_URL]) )
+if (isset($HTTP_GET_VARS[POST_TOPIC_URL]) || isset($HTTP_POST_VARS[POST_TOPIC_URL]))
 {
 	$topic_id = (isset($HTTP_POST_VARS[POST_TOPIC_URL])) ? intval($HTTP_POST_VARS[POST_TOPIC_URL]) : intval($HTTP_GET_VARS[POST_TOPIC_URL]);
 }
@@ -71,39 +72,39 @@ else
 	$topic_id = '';
 }
 
-$confirm = ( $HTTP_POST_VARS['confirm'] ) ? TRUE : 0;
+$confirm = ($HTTP_POST_VARS['confirm']) ? TRUE : 0;
 
 //
 // Continue var definitions
 //
-$start = ( isset($HTTP_GET_VARS['start']) ) ? intval($HTTP_GET_VARS['start']) : 0;
+$start = (isset($HTTP_GET_VARS['start'])) ? intval($HTTP_GET_VARS['start']) : 0;
 $start = ($start < 0) ? 0 : $start;
 
-$delete = ( isset($HTTP_POST_VARS['delete']) ) ? TRUE : FALSE;
-$move = ( isset($HTTP_POST_VARS['move']) ) ? TRUE : FALSE;
-$lock = ( isset($HTTP_POST_VARS['lock']) ) ? TRUE : FALSE;
-$unlock = ( isset($HTTP_POST_VARS['unlock']) ) ? TRUE : FALSE;
+$delete = (isset($HTTP_POST_VARS['delete'])) ? TRUE : FALSE;
+$move = (isset($HTTP_POST_VARS['move'])) ? TRUE : FALSE;
+$lock = (isset($HTTP_POST_VARS['lock'])) ? TRUE : FALSE;
+$unlock = (isset($HTTP_POST_VARS['unlock'])) ? TRUE : FALSE;
 
-if ( isset($HTTP_POST_VARS['mode']) || isset($HTTP_GET_VARS['mode']) )
+if (isset($HTTP_POST_VARS['mode']) || isset($HTTP_GET_VARS['mode']))
 {
-	$mode = ( isset($HTTP_POST_VARS['mode']) ) ? $HTTP_POST_VARS['mode'] : $HTTP_GET_VARS['mode'];
+	$mode = (isset($HTTP_POST_VARS['mode'])) ? $HTTP_POST_VARS['mode'] : $HTTP_GET_VARS['mode'];
 	$mode = htmlspecialchars($mode);
 }
 else
 {
-	if ( $delete )
+	if ($delete)
 	{
 		$mode = 'delete';
 	}
-	else if ( $move )
+	else if ($move)
 	{
 		$mode = 'move';
 	}
-	else if ( $lock )
+	else if ($lock)
 	{
 		$mode = 'lock';
 	}
-	else if ( $unlock )
+	else if ($unlock)
 	{
 		$mode = 'unlock';
 	}
@@ -126,13 +127,13 @@ else
 //
 // Obtain relevant data
 //
-if ( !empty($topic_id) )
+if (!empty($topic_id))
 {
 	$sql = "SELECT f.forum_id, f.forum_name, f.forum_topics
 		FROM " . TOPICS_TABLE . " t, " . FORUMS_TABLE . " f
 		WHERE t.topic_id = " . $topic_id . "
 			AND f.forum_id = t.forum_id";
-	if ( !($result = $db->sql_query($sql)) )
+	if (!($result = $db->sql_query($sql)))
 	{
 		message_die(GENERAL_MESSAGE, 'Topic_post_not_exist');
 	}
@@ -147,12 +148,12 @@ if ( !empty($topic_id) )
 	$forum_id = $topic_row['forum_id'];
 	$forum_name = $topic_row['forum_name'];
 }
-else if ( !empty($forum_id) )
+else if (!empty($forum_id))
 {
 	$sql = "SELECT forum_name, forum_topics
 		FROM " . FORUMS_TABLE . "
 		WHERE forum_id = '$forum_id'";
-	if ( !($result = $db->sql_query($sql)) )
+	if (!($result = $db->sql_query($sql)))
 	{
 		message_die(GENERAL_MESSAGE, 'Forum_not_exist');
 	}
@@ -1176,7 +1177,12 @@ switch( $mode )
 			}
 			else
 			{
-				if ( $row['topic_type'] == POST_ANNOUNCE )
+				if ($row['topic_type'] == POST_GLOBAL_ANNOUNCE) 
+                { 
+                    $folder_img = $images['folder_global_announce']; 
+                    $folder_alt = $lang['Global_announcement']; 
+                }
+                else if ($row['topic_type'] == POST_ANNOUNCE)
 				{
 					$folder_img = $images['folder_announce'];
 					$folder_alt = $lang['Topic_Announcement'];
@@ -1197,15 +1203,19 @@ switch( $mode )
 			$topic_type = $row['topic_type'];
 			$topic_status = $row['topic_status'];
 
-			if ( $topic_type == POST_ANNOUNCE )
+			if ($topic_type == POST_GLOBAL_ANNOUNCE) 
+            { 
+                $topic_type = $lang['Topic_global_announcement'] . ' '; 
+			}
+			else if ($topic_type == POST_ANNOUNCE)
 			{
 				$topic_type = $lang['Topic_Announcement'] . ' ';
 			}
-			else if ( $topic_type == POST_STICKY )
+			else if ($topic_type == POST_STICKY )
 			{
 				$topic_type = $lang['Topic_Sticky'] . ' ';
 			}
-			else if ( $topic_status == TOPIC_MOVED )
+			else if ($topic_status == TOPIC_MOVED)
 			{
 				$topic_type = $lang['Topic_Moved'] . ' ';
 			}

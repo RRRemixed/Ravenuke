@@ -58,10 +58,11 @@ w_help = "{L_BBCODE_W_HELP}";
 a_help = "{L_BBCODE_A_HELP}";
 s_help = "{L_BBCODE_S_HELP}";
 f_help = "{L_BBCODE_F_HELP}";
+r_help = "{L_BBCODE_R_HELP}";
 
 // Define the bbCode tags
 bbcode = new Array();
-bbtags = new Array('[b]','[/b]','[i]','[/i]','[u]','[/u]','[quote]','[/quote]','[code]','[/code]','[list]','[/list]','[list=]','[/list]','[img]','[/img]','[url]','[/url]');
+bbtags = new Array('[b]','[/b]','[i]','[/i]','[u]','[/u]','[quote]','[/quote]','[code]','[/code]','[list]','[/list]','[list=]','[/list]','[img]','[/img]','[url]','[/url]','[swf width= height=]','[/swf]');
 imageTag = false;
 
 // Shows the help messages in the helpline window
@@ -366,13 +367,16 @@ function storeCaret(textEl) {
 <td>
 <input type="button" class="button" accesskey="w" name="addbbcode16" value="URL" style="width: 40px" onclick="bbstyle(16)" onmouseover="helpline('w')" />
 </td>
+<td> 
+<input type="button" class="button" accesskey="r" name="addbbcode18" value="Flash" style="width: 40px" onClick="bbstyle(18)" onMouseOver="helpline('r')" />
+</span></td>
 </tr>
 <tr>
 <td colspan="9">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td nowrap="nowrap" class="genmed"> &nbsp;{L_FONT_COLOR}:
-<select name="addbbcode18" onchange="bbfontstyle('[color=' + this.form.addbbcode18.options[this.form.addbbcode18.selectedIndex].value + ']', '[/color]');this.selectedIndex=0;" onmouseover="helpline('s')">
+<select name="addbbcode20" onChange="bbfontstyle('[color=' + this.form.addbbcode20.options[this.form.addbbcode20.selectedIndex].value + ']', '[/color]');this.selectedIndex=0;" onmouseover="helpline('s')">
 <option value="{T_BODY_TEXT}">{L_COLOR_DEFAULT}</option>
 <option style="color:darkred; background-color:transparent" value="darkred">{L_COLOR_DARK_RED}</option>
 <option style="color:red; background-color:transparent" value="red">{L_COLOR_RED}</option>
@@ -390,7 +394,7 @@ function storeCaret(textEl) {
 <option style="color:black; background-color:transparent" value="black">{L_COLOR_BLACK}</option>
 </select>
 &nbsp;{L_FONT_SIZE}:
-<select name="addbbcode20" onchange="bbfontstyle('[size=' + this.form.addbbcode20.options[this.form.addbbcode20.selectedIndex].value + ']', '[/size]')" onmouseover="helpline('f')">
+<select name="addbbcode22" onChange="bbfontstyle('[size=' + this.form.addbbcode22.options[this.form.addbbcode22.selectedIndex].value + ']', '[/size]')" onMouseOver="helpline('f')">
 <option value="7">{L_FONT_TINY}</option>
 <option value="9">{L_FONT_SMALL}</option>
 <option value="12">{L_FONT_NORMAL}</option>

@@ -1055,7 +1055,7 @@ else if ( $search_keywords != '' || $search_author != '' || $search_id )
 					$mini_post_alt = $lang['Post'];
 				}
 
-                                $template->assign_block_vars("searchresults", array(
+                $template->assign_block_vars("searchresults", array(
 					'TOPIC_TITLE' => $topic_title,
 					'FORUM_NAME' => $searchset[$i]['forum_name'],
 					'POST_SUBJECT' => $post_subject,
@@ -1084,7 +1084,11 @@ else if ( $search_keywords != '' || $search_author != '' || $search_id )
 
 				$topic_type = $searchset[$i]['topic_type'];
 
-				if ($topic_type == POST_ANNOUNCE)
+				if ($topic_type == POST_GLOBAL_ANNOUNCE ) 
+				{ 
+					$topic_type = $lang['Topic_global_announcement'] . " "; 
+				} 
+				else if ($topic_type == POST_ANNOUNCE)
 				{
 					$topic_type = $lang['Topic_Announcement'] . ' ';
 				}
@@ -1148,7 +1152,7 @@ else if ( $search_keywords != '' || $search_author != '' || $search_id )
 						$folder = $images['folder_locked'];
 						$folder_new = $images['folder_locked_new'];
 					}
-					else if ( $searchset[$i]['topic_type'] == POST_ANNOUNCE )
+					else if ( $searchset[$i]['topic_type'] == POST_ANNOUNCE || $searchset[$i]['topic_type'] == POST_GLOBAL_ANNOUNCE )
 					{
 						$folder = $images['folder_announce'];
 						$folder_new = $images['folder_announce_new'];
@@ -1280,7 +1284,7 @@ else if ( $search_keywords != '' || $search_author != '' || $search_id )
 #======================================================================= |
 				$last_post_url = '<a href="' . append_sid("viewtopic.$phpEx?"  . POST_POST_URL . '=' . $searchset[$i]['topic_last_post_id']) . '#' . $searchset[$i]['topic_last_post_id'] . '"><img src="' . $images['icon_latest_reply'] . '" alt="' . $lang['View_latest_post'] . '" title="' . $lang['View_latest_post'] . '" border="0" /></a>';
 
-                                $template->assign_block_vars('searchresults', array(
+                $template->assign_block_vars('searchresults', array(
 					'FORUM_NAME' => $searchset[$i]['forum_name'],
 					'FORUM_ID' => $forum_id,
 					'TOPIC_ID' => $topic_id,
@@ -1342,6 +1346,7 @@ else if ( $search_keywords != '' || $search_author != '' || $search_id )
 $sql = "SELECT c.cat_title, c.cat_id, f.forum_name, f.forum_id
 	FROM " . CATEGORIES_TABLE . " c, " . FORUMS_TABLE . " f
         WHERE f.cat_id = c.cat_id
+		".(($userdata['user_level'] == ADMIN)? "" : "AND c.cat_title<>'global_announcement'" )."
 	ORDER BY c.cat_order, f.forum_order";
 $result = $db->sql_query($sql);
 if ( !$result )
